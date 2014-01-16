@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC1E7EF8188796820055324B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EF7188796820055324B /* Foundation.framework */; };
+		AC1E7EFA188796820055324B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EF9188796820055324B /* CoreGraphics.framework */; };
+		AC1E7EFC188796820055324B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EFB188796820055324B /* UIKit.framework */; };
+		AC1E7F02188796820055324B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F00188796820055324B /* InfoPlist.strings */; };
+		AC1E7F04188796820055324B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F03188796820055324B /* main.m */; };
+		AC1E7F08188796820055324B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F07188796820055324B /* AppDelegate.m */; };
+		AC1E7F0A188796820055324B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F09188796820055324B /* Images.xcassets */; };
+		AC1E7F11188796820055324B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7F10188796820055324B /* XCTest.framework */; };
+		AC1E7F12188796820055324B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EF7188796820055324B /* Foundation.framework */; };
+		AC1E7F13188796820055324B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EFB188796820055324B /* UIKit.framework */; };
+		AC1E7F1B188796820055324B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F19188796820055324B /* InfoPlist.strings */; };
+		AC1E7F1D188796820055324B /* CleverPumpkinTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F1C188796820055324B /* CleverPumpkinTestTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC1E7F14188796820055324B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC1E7EEC188796820055324B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC1E7EF3188796820055324B;
+			remoteInfo = CleverPumpkinTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC1E7EF4188796820055324B /* CleverPumpkinTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleverPumpkinTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC1E7EF7188796820055324B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AC1E7EF9188796820055324B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AC1E7EFB188796820055324B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AC1E7EFF188796820055324B /* CleverPumpkinTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CleverPumpkinTest-Info.plist"; sourceTree = "<group>"; };
+		AC1E7F01188796820055324B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC1E7F03188796820055324B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AC1E7F05188796820055324B /* CleverPumpkinTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CleverPumpkinTest-Prefix.pch"; sourceTree = "<group>"; };
+		AC1E7F06188796820055324B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AC1E7F07188796820055324B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AC1E7F09188796820055324B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AC1E7F0F188796820055324B /* CleverPumpkinTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleverPumpkinTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC1E7F10188796820055324B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AC1E7F18188796820055324B /* CleverPumpkinTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CleverPumpkinTestTests-Info.plist"; sourceTree = "<group>"; };
+		AC1E7F1A188796820055324B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC1E7F1C188796820055324B /* CleverPumpkinTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CleverPumpkinTestTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC1E7EF1188796820055324B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC1E7EFA188796820055324B /* CoreGraphics.framework in Frameworks */,
+				AC1E7EFC188796820055324B /* UIKit.framework in Frameworks */,
+				AC1E7EF8188796820055324B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC1E7F0C188796820055324B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC1E7F11188796820055324B /* XCTest.framework in Frameworks */,
+				AC1E7F13188796820055324B /* UIKit.framework in Frameworks */,
+				AC1E7F12188796820055324B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC1E7EEB188796820055324B = {
+			isa = PBXGroup;
+			children = (
+				AC1E7EFD188796820055324B /* CleverPumpkinTest */,
+				AC1E7F16188796820055324B /* CleverPumpkinTestTests */,
+				AC1E7EF6188796820055324B /* Frameworks */,
+				AC1E7EF5188796820055324B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC1E7EF5188796820055324B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7EF4188796820055324B /* CleverPumpkinTest.app */,
+				AC1E7F0F188796820055324B /* CleverPumpkinTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC1E7EF6188796820055324B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7EF7188796820055324B /* Foundation.framework */,
+				AC1E7EF9188796820055324B /* CoreGraphics.framework */,
+				AC1E7EFB188796820055324B /* UIKit.framework */,
+				AC1E7F10188796820055324B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC1E7EFD188796820055324B /* CleverPumpkinTest */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7F06188796820055324B /* AppDelegate.h */,
+				AC1E7F07188796820055324B /* AppDelegate.m */,
+				AC1E7F09188796820055324B /* Images.xcassets */,
+				AC1E7EFE188796820055324B /* Supporting Files */,
+			);
+			path = CleverPumpkinTest;
+			sourceTree = "<group>";
+		};
+		AC1E7EFE188796820055324B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7EFF188796820055324B /* CleverPumpkinTest-Info.plist */,
+				AC1E7F00188796820055324B /* InfoPlist.strings */,
+				AC1E7F03188796820055324B /* main.m */,
+				AC1E7F05188796820055324B /* CleverPumpkinTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC1E7F16188796820055324B /* CleverPumpkinTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7F1C188796820055324B /* CleverPumpkinTestTests.m */,
+				AC1E7F17188796820055324B /* Supporting Files */,
+			);
+			path = CleverPumpkinTestTests;
+			sourceTree = "<group>";
+		};
+		AC1E7F17188796820055324B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7F18188796820055324B /* CleverPumpkinTestTests-Info.plist */,
+				AC1E7F19188796820055324B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC1E7EF3188796820055324B /* CleverPumpkinTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC1E7F20188796820055324B /* Build configuration list for PBXNativeTarget "CleverPumpkinTest" */;
+			buildPhases = (
+				AC1E7EF0188796820055324B /* Sources */,
+				AC1E7EF1188796820055324B /* Frameworks */,
+				AC1E7EF2188796820055324B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CleverPumpkinTest;
+			productName = CleverPumpkinTest;
+			productReference = AC1E7EF4188796820055324B /* CleverPumpkinTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC1E7F0E188796820055324B /* CleverPumpkinTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC1E7F23188796820055324B /* Build configuration list for PBXNativeTarget "CleverPumpkinTestTests" */;
+			buildPhases = (
+				AC1E7F0B188796820055324B /* Sources */,
+				AC1E7F0C188796820055324B /* Frameworks */,
+				AC1E7F0D188796820055324B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC1E7F15188796820055324B /* PBXTargetDependency */,
+			);
+			name = CleverPumpkinTestTests;
+			productName = CleverPumpkinTestTests;
+			productReference = AC1E7F0F188796820055324B /* CleverPumpkinTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC1E7EEC188796820055324B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Artem Abramov";
+				TargetAttributes = {
+					AC1E7F0E188796820055324B = {
+						TestTargetID = AC1E7EF3188796820055324B;
+					};
+				};
+			};
+			buildConfigurationList = AC1E7EEF188796820055324B /* Build configuration list for PBXProject "CleverPumpkinTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AC1E7EEB188796820055324B;
+			productRefGroup = AC1E7EF5188796820055324B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC1E7EF3188796820055324B /* CleverPumpkinTest */,
+				AC1E7F0E188796820055324B /* CleverPumpkinTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC1E7EF2188796820055324B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC1E7F02188796820055324B /* InfoPlist.strings in Resources */,
+				AC1E7F0A188796820055324B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC1E7F0D188796820055324B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC1E7F1B188796820055324B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC1E7EF0188796820055324B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC1E7F08188796820055324B /* AppDelegate.m in Sources */,
+				AC1E7F04188796820055324B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC1E7F0B188796820055324B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC1E7F1D188796820055324B /* CleverPumpkinTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC1E7F15188796820055324B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC1E7EF3188796820055324B /* CleverPumpkinTest */;
+			targetProxy = AC1E7F14188796820055324B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC1E7F00188796820055324B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC1E7F01188796820055324B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AC1E7F19188796820055324B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC1E7F1A188796820055324B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC1E7F1E188796820055324B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AC1E7F1F188796820055324B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC1E7F21188796820055324B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
+				INFOPLIST_FILE = "CleverPumpkinTest/CleverPumpkinTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AC1E7F22188796820055324B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
+				INFOPLIST_FILE = "CleverPumpkinTest/CleverPumpkinTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AC1E7F24188796820055324B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CleverPumpkinTest.app/CleverPumpkinTest";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CleverPumpkinTestTests/CleverPumpkinTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AC1E7F25188796820055324B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CleverPumpkinTest.app/CleverPumpkinTest";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
+				INFOPLIST_FILE = "CleverPumpkinTestTests/CleverPumpkinTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC1E7EEF188796820055324B /* Build configuration list for PBXProject "CleverPumpkinTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC1E7F1E188796820055324B /* Debug */,
+				AC1E7F1F188796820055324B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC1E7F20188796820055324B /* Build configuration list for PBXNativeTarget "CleverPumpkinTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC1E7F21188796820055324B /* Debug */,
+				AC1E7F22188796820055324B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AC1E7F23188796820055324B /* Build configuration list for PBXNativeTarget "CleverPumpkinTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC1E7F24188796820055324B /* Debug */,
+				AC1E7F25188796820055324B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC1E7EEC188796820055324B /* Project object */;
+}
