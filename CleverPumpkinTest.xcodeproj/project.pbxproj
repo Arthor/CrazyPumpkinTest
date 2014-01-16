@@ -19,6 +19,11 @@
 		AC1E7F13188796820055324B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EFB188796820055324B /* UIKit.framework */; };
 		AC1E7F1B188796820055324B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F19188796820055324B /* InfoPlist.strings */; };
 		AC1E7F1D188796820055324B /* CleverPumpkinTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F1C188796820055324B /* CleverPumpkinTestTests.m */; };
+		AC1E7F2B18879DA60055324B /* NetworkLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F2A18879DA60055324B /* NetworkLoader.m */; };
+		AC1E7F2D18879E050055324B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F2C18879E050055324B /* README.md */; };
+		AC1E7F301887A7F90055324B /* FlightXMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */; };
+		AC1E7F331887A8C00055324B /* FlightData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F321887A8C00055324B /* FlightData.m */; };
+		ACE4E3E5188BB12100482F4C /* FlightListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3E4188BB12100482F4C /* FlightListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,15 @@
 		AC1E7F18188796820055324B /* CleverPumpkinTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CleverPumpkinTestTests-Info.plist"; sourceTree = "<group>"; };
 		AC1E7F1A188796820055324B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC1E7F1C188796820055324B /* CleverPumpkinTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CleverPumpkinTestTests.m; sourceTree = "<group>"; };
+		AC1E7F2918879DA60055324B /* NetworkLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkLoader.h; sourceTree = "<group>"; };
+		AC1E7F2A18879DA60055324B /* NetworkLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkLoader.m; sourceTree = "<group>"; };
+		AC1E7F2C18879E050055324B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		AC1E7F2E1887A7F90055324B /* FlightXMLParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightXMLParseOperation.h; sourceTree = "<group>"; };
+		AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightXMLParseOperation.m; sourceTree = "<group>"; };
+		AC1E7F311887A8C00055324B /* FlightData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightData.h; sourceTree = "<group>"; };
+		AC1E7F321887A8C00055324B /* FlightData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightData.m; sourceTree = "<group>"; };
+		ACE4E3E3188BB12100482F4C /* FlightListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightListViewController.h; sourceTree = "<group>"; };
+		ACE4E3E4188BB12100482F4C /* FlightListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +121,12 @@
 		AC1E7EFD188796820055324B /* CleverPumpkinTest */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E7F06188796820055324B /* AppDelegate.h */,
-				AC1E7F07188796820055324B /* AppDelegate.m */,
-				AC1E7F09188796820055324B /* Images.xcassets */,
+				ACE4E3E6188BB59C00482F4C /* ViewControllers */,
+				AC1E7F2818879D8D0055324B /* Model */,
+				AC1E7F2618879D620055324B /* AppDelegate */,
+				AC1E7F2718879D6B0055324B /* Assets */,
 				AC1E7EFE188796820055324B /* Supporting Files */,
+				AC1E7F2C18879E050055324B /* README.md */,
 			);
 			path = CleverPumpkinTest;
 			sourceTree = "<group>";
@@ -142,6 +158,45 @@
 				AC1E7F19188796820055324B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC1E7F2618879D620055324B /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7F06188796820055324B /* AppDelegate.h */,
+				AC1E7F07188796820055324B /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		AC1E7F2718879D6B0055324B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7F09188796820055324B /* Images.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		AC1E7F2818879D8D0055324B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7F2918879DA60055324B /* NetworkLoader.h */,
+				AC1E7F2A18879DA60055324B /* NetworkLoader.m */,
+				AC1E7F2E1887A7F90055324B /* FlightXMLParseOperation.h */,
+				AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */,
+				AC1E7F311887A8C00055324B /* FlightData.h */,
+				AC1E7F321887A8C00055324B /* FlightData.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		ACE4E3E6188BB59C00482F4C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ACE4E3E3188BB12100482F4C /* FlightListViewController.h */,
+				ACE4E3E4188BB12100482F4C /* FlightListViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC1E7F2D18879E050055324B /* README.md in Resources */,
 				AC1E7F02188796820055324B /* InfoPlist.strings in Resources */,
 				AC1E7F0A188796820055324B /* Images.xcassets in Resources */,
 			);
@@ -240,7 +296,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC1E7F08188796820055324B /* AppDelegate.m in Sources */,
+				AC1E7F2B18879DA60055324B /* NetworkLoader.m in Sources */,
+				ACE4E3E5188BB12100482F4C /* FlightListViewController.m in Sources */,
 				AC1E7F04188796820055324B /* main.m in Sources */,
+				AC1E7F331887A8C00055324B /* FlightData.m in Sources */,
+				AC1E7F301887A7F90055324B /* FlightXMLParseOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +501,7 @@
 				AC1E7F22188796820055324B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC1E7F23188796820055324B /* Build configuration list for PBXNativeTarget "CleverPumpkinTestTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +510,7 @@
 				AC1E7F25188796820055324B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
