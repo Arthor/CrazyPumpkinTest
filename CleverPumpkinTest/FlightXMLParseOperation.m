@@ -25,12 +25,12 @@ static NSString* const kElementNameFlight = @"flight";
 static NSString* const kElementNamePrice = @"price";
 static NSString* const kElementNameResult = @"result";
 
-
 static NSString* const kAttributeNameTripDuration = @"duration";
 static NSString* const kAttributeNameTripDate = @"date";
 static NSString* const kAttributeNameTripTime = @"time";
 static NSString* const kAttributeNameTripCity = @"city";
 static NSString* const kAttributeNameTripNumber = @"number";
+static NSString* const kAttributeNameTripCarrier = @"carrier";
 static NSString* const kAttributeNameTripEq = @"eq";
 
 @interface FlightXMLParseOperation()<NSXMLParserDelegate>
@@ -50,26 +50,26 @@ static NSString* const kAttributeNameTripEq = @"eq";
     NSUInteger _parsedFlightsCounter;
 }
 
+#pragma mark - Initialization
+
 - (id)initWithData:(NSData *)parseData
 {
     self = [super init];
     if (self)
     {
         _flightXMLData = [parseData copy];
-        
-        _dateFormatter = [[NSDateFormatter alloc] init];
-        [_dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-        [_dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU_POSIX"]];
-        [_dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
-        
         _currentParseBatch = [[NSMutableArray alloc] init];
         _currentParsedCharacterData = [[NSMutableString alloc] init];
     }
     return self;
 }
 
+#pragma mark - Notification
+
 - (void)notifyAboutParsedXML:(NSArray *)flightsXML
 {
+    for (FlightData *flightData in flightsXML)
+        NSLog(@"%@", flightData);
     
     assert([NSThread isMainThread]);
     [[NSNotificationCenter defaultCenter] postNotificationName:kFlightXMLParsed
@@ -109,12 +109,41 @@ static NSString* const kAttributeNameTripEq = @"eq";
     {
         self.currentFlight = [[FlightData alloc] init];
         NSString *flightDuration = attributeDict[kAttributeNameTripDuration];
-        NSLog(@"Flight duration: %@", flightDuration);
-        
+        if ([flightDuration length])
+            self.currentFlight.flightDuration = flightDuration;
+    }
+    else if ([elementName isEqualToString:kElementNameTakeoff])
+    {
+        NSString *takeoffDate = attributeDict[kAttributeNameTripDate];
+        NSString *takeoffTime = attributeDict[kAttributeNameTripTime];
+        NSString *takeoffCity = attributeDict[kAttributeNameTripCity];
+        if ([takeoffCity length])
+            self.currentFlight.takeoffCity = takeoffCity;
+        if ([takeoffTime length])
+            self.currentFlight.takeoffHour = takeoffTime;
+        if ([takeoffDate length])
+            self.currentFlight.takeoffDate = takeoffDate;
+    }
+    else if ([elementName isEqualToString:kElementNameLanding])
+    {
+        NSString *landingDate = attributeDict[kAttributeNameTripDate];
+        NSString *landingTime = attributeDict[kAttributeNameTripTime];
+        NSString *landingCity = attributeDict[kAttributeNameTripCity];
+        if ([landingCity length])
+            self.currentFlight.landingCity = landingCity;
+        if ([landingTime length])
+            self.currentFlight.landingHour = landingTime;
+        if ([landingDate length])
+            self.currentFlight.landingDate = landingDate;
     }
     else if ([elementName isEqualToString:kElementNameFlight])
     {
-        
+        NSString *carrier = attributeDict[kAttributeNameTripCarrier];
+        if ([carrier length])
+            self.currentFlight.carrier = carrier;
+        NSString *number = attributeDict[kAttributeNameTripNumber];
+        if ([number length] && [number integerValue] > 0)
+            self.currentFlight.number = [number integerValue];
     }
     else if ([elementName isEqualToString:kElementNamePrice])
     {
