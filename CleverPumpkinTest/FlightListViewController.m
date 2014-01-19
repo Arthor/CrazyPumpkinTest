@@ -50,6 +50,7 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
                                                                     options:nil] firstObject];
     self.tableView.rowHeight = CGRectGetHeight(cellToCalcHeight.frame);
     [self.view addSubview:self.tableView];
+    self.title = @"Flight List";
     [self.flightsStorage fetchNewData];
 }
 

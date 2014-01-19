@@ -13,6 +13,7 @@
 
 @interface AppDelegate()
 
+@property (nonatomic, strong) UINavigationController *navigationController;
 @property (nonatomic, strong) FlightListViewController *flightListVC;
 @property (nonatomic, strong) FlightsStorage *flightsStorage;
 
@@ -28,8 +29,9 @@
     
     self.flightListVC = [FlightListViewController new];
     self.flightListVC.flightsStorage = self.flightsStorage;
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.flightListVC];
     
-    self.window.rootViewController = self.flightListVC;
+    self.window.rootViewController = self.navigationController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
