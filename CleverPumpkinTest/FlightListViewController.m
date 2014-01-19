@@ -7,10 +7,11 @@
 //
 
 #import "FlightListViewController.h"
-#import "FlightXMLParseOperation.h"
-#import "NetworkLoader.h"
 
-@interface FlightListViewController ()
+#import "FlightXMLParseOperation.h"
+#import "FlightsStorage.h"
+
+@interface FlightListViewController ()<FlightsStorageProtocol>
 
 @end
 
@@ -28,7 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.networkLoader fetchNewData];
+    [self.flightsStorage fetchNewData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.flightsStorage.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,6 +53,17 @@
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil];
     [alertView show];
+}
+
+#pragma mark - FlightsStorageProtocol
+- (void)flightsUpdated:(NSArray*)updatedFlights
+{
+    NSLog(@"Updated: %@", updatedFlights);
+}
+
+- (void)failedWithError:(NSError*)error
+{
+    
 }
 
 @end

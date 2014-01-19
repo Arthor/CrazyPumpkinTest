@@ -16,8 +16,6 @@ NSString* const kCleverPumpkinURL = @"http://cleverpumpkin.ru/test/flights0541.x
 @interface NetworkLoader()
 
 @property (nonatomic, strong) NSTimer *updateTimer;
-//@property (nonatomic, strong) NSURLConnection *connection;
-@property (nonatomic, strong) NSOperationQueue *connectionQueue;
 @property (nonatomic, strong) NSOperationQueue *parseQueue;
 @property (nonatomic, strong) NSData *xmlData;
 @property (nonatomic) BOOL isLoading;
@@ -27,26 +25,11 @@ NSString* const kCleverPumpkinURL = @"http://cleverpumpkin.ru/test/flights0541.x
 
 @implementation NetworkLoader
 
-- (id)init
+- (NSError*)fetchNewData
 {
-    self = [super init];
-    if (self)
-    {
-
-    }
-    return self;
-}
-
-- (void)fetchNewData
-{
-    [self setUpTimerWithInterval:kUpdateInterval];
-    [self.updateTimer fire];
-}
-
-- (void)requestNewData
-{
+    NSError *error = nil;
     if (self.isLoading)
-        return;
+        return error;
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:kCleverPumpkinURL]
                                              cachePolicy:NSURLRequestReloadRevalidatingCacheData
@@ -54,7 +37,7 @@ NSString* const kCleverPumpkinURL = @"http://cleverpumpkin.ru/test/flights0541.x
     
     __weak typeof(self) weakSelf = self;
     void(^completionHandler)(NSURLResponse *, NSData *, NSError *error) =
-        ^(NSURLResponse *response, NSData *data, NSError *connectionError)
+    ^(NSURLResponse *response, NSData *data, NSError *connectionError)
     {
         if (connectionError)
             [self handleError:connectionError];
@@ -64,7 +47,7 @@ NSString* const kCleverPumpkinURL = @"http://cleverpumpkin.ru/test/flights0541.x
         {
             [self.parseQueue cancelAllOperations];
             FlightXMLParseOperation *parseOperation =
-                [[FlightXMLParseOperation alloc] initWithData:data];
+            [[FlightXMLParseOperation alloc] initWithData:data];
             [self.parseQueue addOperation:parseOperation];
         }
         else
@@ -82,23 +65,14 @@ NSString* const kCleverPumpkinURL = @"http://cleverpumpkin.ru/test/flights0541.x
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:completionHandler];
+    return error;
 }
 
 #pragma mark - Utility
-- (void)setUpTimerWithInterval:(CGFloat)interval
-{
-    [self.updateTimer invalidate];
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:kUpdateInterval
-                                                        target:self
-                                                      selector:@selector(requestNewData)
-                                                      userInfo:nil
-                                                       repeats:YES];
-}
 
 - (void)handleError:(NSError*)connectionError
 {
     
 }
-
 
 @end

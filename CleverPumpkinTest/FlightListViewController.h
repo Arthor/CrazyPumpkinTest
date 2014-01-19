@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class NetworkLoader;
+@class FlightsStorage;
 
 @interface FlightListViewController : UIViewController
 
-@property (nonatomic, weak) NetworkLoader *networkLoader;
+@property (nonatomic, weak) FlightsStorage *flightsStorage;
 
 @end

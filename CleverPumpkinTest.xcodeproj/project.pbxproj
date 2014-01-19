@@ -24,6 +24,7 @@
 		AC1E7F301887A7F90055324B /* FlightXMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */; };
 		AC1E7F331887A8C00055324B /* FlightData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F321887A8C00055324B /* FlightData.m */; };
 		ACE4E3E5188BB12100482F4C /* FlightListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3E4188BB12100482F4C /* FlightListViewController.m */; };
+		ACE4E3E9188BC29200482F4C /* FlightsStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3E8188BC29200482F4C /* FlightsStorage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		AC1E7F321887A8C00055324B /* FlightData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightData.m; sourceTree = "<group>"; };
 		ACE4E3E3188BB12100482F4C /* FlightListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightListViewController.h; sourceTree = "<group>"; };
 		ACE4E3E4188BB12100482F4C /* FlightListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightListViewController.m; sourceTree = "<group>"; };
+		ACE4E3E7188BC29200482F4C /* FlightsStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsStorage.h; sourceTree = "<group>"; };
+		ACE4E3E8188BC29200482F4C /* FlightsStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,12 +183,14 @@
 		AC1E7F2818879D8D0055324B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E7F2918879DA60055324B /* NetworkLoader.h */,
-				AC1E7F2A18879DA60055324B /* NetworkLoader.m */,
-				AC1E7F2E1887A7F90055324B /* FlightXMLParseOperation.h */,
-				AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */,
 				AC1E7F311887A8C00055324B /* FlightData.h */,
 				AC1E7F321887A8C00055324B /* FlightData.m */,
+				ACE4E3E7188BC29200482F4C /* FlightsStorage.h */,
+				ACE4E3E8188BC29200482F4C /* FlightsStorage.m */,
+				AC1E7F2E1887A7F90055324B /* FlightXMLParseOperation.h */,
+				AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */,
+				AC1E7F2918879DA60055324B /* NetworkLoader.h */,
+				AC1E7F2A18879DA60055324B /* NetworkLoader.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				AC1E7F04188796820055324B /* main.m in Sources */,
 				AC1E7F331887A8C00055324B /* FlightData.m in Sources */,
 				AC1E7F301887A7F90055324B /* FlightXMLParseOperation.m in Sources */,
+				ACE4E3E9188BC29200482F4C /* FlightsStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

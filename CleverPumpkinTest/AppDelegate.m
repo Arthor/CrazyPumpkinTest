@@ -7,13 +7,14 @@
 //
 
 #import "AppDelegate.h"
+
+#import "FlightsStorage.h"
 #import "FlightListViewController.h"
-#import "NetworkLoader.h"
 
 @interface AppDelegate()
 
 @property (nonatomic, strong) FlightListViewController *flightListVC;
-@property (nonatomic, strong) NetworkLoader *networkLoader;
+@property (nonatomic, strong) FlightsStorage *flightsStorage;
 
 @end
 
@@ -23,10 +24,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    NetworkLoader *networkLoader = [[NetworkLoader alloc] init];
+    self.flightsStorage = [[FlightsStorage alloc] init];
     
     self.flightListVC = [FlightListViewController new];
-    self.flightListVC.networkLoader = networkLoader;
+    self.flightListVC.flightsStorage = self.flightsStorage;
+    
     self.window.rootViewController = self.flightListVC;
     
     self.window.backgroundColor = [UIColor whiteColor];

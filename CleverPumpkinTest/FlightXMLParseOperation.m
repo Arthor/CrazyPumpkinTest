@@ -74,7 +74,7 @@ static NSString* const kAttributeNameTripEq = @"eq";
     assert([NSThread isMainThread]);
     [[NSNotificationCenter defaultCenter] postNotificationName:kFlightXMLParsed
                                                         object:self
-                                                      userInfo:@{kFlightXMLParsed: flightsXML}];
+                                                      userInfo:@{kFlightXMLResultKey: flightsXML}];
 }
 
 #pragma mark - NSOperation

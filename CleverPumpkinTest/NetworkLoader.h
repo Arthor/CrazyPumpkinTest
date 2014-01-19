@@ -18,18 +18,14 @@ typedef NS_ENUM(NSUInteger, NetworkLoaderErrorCodes)
 
 @protocol NetworkLoaderProtocol <NSObject>
 
-- (void)update;
-- (void)updateItemsWithIndexes:(NSIndexSet *)indexes;
-- (void)removeItemsWithIndexes:(NSIndexSet *)indexes;
-- (void)insertItemsAtIndexes:(NSIndexSet *)indexes;
+- (void)fetchedDataWithError:(NSError*)error;
 
 @end
 
 @interface NetworkLoader : NSObject
 
-@property (nonatomic, readonly) NSArray *items;
 @property (nonatomic, weak) id<NetworkLoaderProtocol> delegate;
 
-- (void)fetchNewData;
+- (NSError*)fetchNewData;
 
 @end
