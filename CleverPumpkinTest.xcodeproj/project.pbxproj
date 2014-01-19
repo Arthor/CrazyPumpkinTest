@@ -25,6 +25,8 @@
 		AC1E7F331887A8C00055324B /* FlightData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F321887A8C00055324B /* FlightData.m */; };
 		ACE4E3E5188BB12100482F4C /* FlightListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3E4188BB12100482F4C /* FlightListViewController.m */; };
 		ACE4E3E9188BC29200482F4C /* FlightsStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3E8188BC29200482F4C /* FlightsStorage.m */; };
+		ACE4E3EE188BE58100482F4C /* FlightInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3ED188BE58100482F4C /* FlightInfoCell.m */; };
+		ACE4E3F0188BE59500482F4C /* FlightInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE4E3EF188BE59500482F4C /* FlightInfoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,9 @@
 		ACE4E3E4188BB12100482F4C /* FlightListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightListViewController.m; sourceTree = "<group>"; };
 		ACE4E3E7188BC29200482F4C /* FlightsStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsStorage.h; sourceTree = "<group>"; };
 		ACE4E3E8188BC29200482F4C /* FlightsStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsStorage.m; sourceTree = "<group>"; };
+		ACE4E3EC188BE58100482F4C /* FlightInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightInfoCell.h; sourceTree = "<group>"; };
+		ACE4E3ED188BE58100482F4C /* FlightInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightInfoCell.m; sourceTree = "<group>"; };
+		ACE4E3EF188BE59500482F4C /* FlightInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlightInfoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,12 +129,13 @@
 		AC1E7EFD188796820055324B /* CleverPumpkinTest */ = {
 			isa = PBXGroup;
 			children = (
-				ACE4E3E6188BB59C00482F4C /* ViewControllers */,
-				AC1E7F2818879D8D0055324B /* Model */,
+				AC1E7F2C18879E050055324B /* README.md */,
 				AC1E7F2618879D620055324B /* AppDelegate */,
 				AC1E7F2718879D6B0055324B /* Assets */,
+				AC1E7F2818879D8D0055324B /* Model */,
 				AC1E7EFE188796820055324B /* Supporting Files */,
-				AC1E7F2C18879E050055324B /* README.md */,
+				ACE4E3E6188BB59C00482F4C /* ViewControllers */,
+				ACE4E3EA188BE55A00482F4C /* Views */,
 			);
 			path = CleverPumpkinTest;
 			sourceTree = "<group>";
@@ -202,6 +208,16 @@
 				ACE4E3E4188BB12100482F4C /* FlightListViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ACE4E3EA188BE55A00482F4C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACE4E3EC188BE58100482F4C /* FlightInfoCell.h */,
+				ACE4E3ED188BE58100482F4C /* FlightInfoCell.m */,
+				ACE4E3EF188BE59500482F4C /* FlightInfoCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC1E7F2D18879E050055324B /* README.md in Resources */,
+				ACE4E3F0188BE59500482F4C /* FlightInfoCell.xib in Resources */,
 				AC1E7F02188796820055324B /* InfoPlist.strings in Resources */,
 				AC1E7F0A188796820055324B /* Images.xcassets in Resources */,
 			);
@@ -305,6 +322,7 @@
 				ACE4E3E5188BB12100482F4C /* FlightListViewController.m in Sources */,
 				AC1E7F04188796820055324B /* main.m in Sources */,
 				AC1E7F331887A8C00055324B /* FlightData.m in Sources */,
+				ACE4E3EE188BE58100482F4C /* FlightInfoCell.m in Sources */,
 				AC1E7F301887A7F90055324B /* FlightXMLParseOperation.m in Sources */,
 				ACE4E3E9188BC29200482F4C /* FlightsStorage.m in Sources */,
 			);

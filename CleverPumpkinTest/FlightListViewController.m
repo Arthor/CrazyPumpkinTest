@@ -10,8 +10,18 @@
 
 #import "FlightXMLParseOperation.h"
 #import "FlightsStorage.h"
+#import "FlightInfoCell.h"
 
-@interface FlightListViewController ()<FlightsStorageProtocol>
+static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
+
+
+@interface FlightListViewController ()<FlightsStorageProtocol,
+                                       UITableViewDataSource,
+                                       UITableViewDelegate>
+
+@property (nonatomic, strong) NSArray *cachedFlightList;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic) CGFloat cellHeight;
 
 @end
 
@@ -29,6 +39,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds
+                                                  style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerNib:[UINib nibWithNibName:@"FlightInfoCell" bundle:nil]
+         forCellReuseIdentifier:kTableViewCellIdentifier];
+    FlightInfoCell *cellToCalcHeight = [[[NSBundle mainBundle] loadNibNamed:@"FlightInfoCell"
+                                                                      owner:self
+                                                                    options:nil] firstObject];
+    self.tableView.rowHeight = CGRectGetHeight(cellToCalcHeight.frame);
+    [self.view addSubview:self.tableView];
     [self.flightsStorage fetchNewData];
 }
 
@@ -37,11 +58,6 @@
     self.flightsStorage.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (void)handleError:(NSError *)error
 {
     
@@ -58,12 +74,72 @@
 #pragma mark - FlightsStorageProtocol
 - (void)flightsUpdated:(NSArray*)updatedFlights
 {
-    NSLog(@"Updated: %@", updatedFlights);
+    
+    if (!updatedFlights)
+        return;
+    
+
+    __weak typeof(self) weakSelf = self;
+    NSIndexSet *indexesToRemove = [NSIndexSet indexSet];
+    indexesToRemove = [self.cachedFlightList indexesOfObjectsPassingTest:^BOOL(id obj,
+                                                                            NSUInteger idx,
+                                                                            BOOL *stop)
+    {
+        return ![updatedFlights containsObject:obj];
+    }];
+    
+    NSIndexSet *indexesToAdd = [NSIndexSet indexSet];
+    indexesToAdd = [updatedFlights indexesOfObjectsPassingTest:^BOOL(id obj,
+                                                                    NSUInteger idx,
+                                                                    BOOL *stop)
+    {
+        return ![weakSelf.cachedFlightList containsObject:obj];
+    }];
+    
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:NSIndexSetToNSIndexPathArray(indexesToAdd, 0)
+                          withRowAnimation:UITableViewRowAnimationRight];
+    [self.tableView deleteRowsAtIndexPaths:NSIndexSetToNSIndexPathArray(indexesToRemove, 0)
+                          withRowAnimation:UITableViewRowAnimationLeft];
+    [self.tableView endUpdates];
+    
+    self.cachedFlightList = updatedFlights;
+}
+
+static inline NSArray* NSIndexSetToNSIndexPathArray(NSIndexSet *indexes, NSUInteger section)
+{
+    if (!indexes)
+        return nil;
+    
+    NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:indexes.count];
+    NSUInteger index = [indexes firstIndex];
+    while (index != NSNotFound) {
+        [indexPaths addObject:[NSIndexPath indexPathForItem:index inSection:section]];
+        index = [indexes indexGreaterThanIndex:index];
+    }
+    return [indexPaths copy];
 }
 
 - (void)failedWithError:(NSError*)error
 {
-    
+    [self handleError:error];
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    return self.flightsStorage.flightsList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FlightInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier
+                                                           forIndexPath:indexPath];
+    FlightData *currentFlight = self.flightsStorage.flightsList[indexPath.row];
+    [cell configureForFlight:currentFlight];
+    return cell;
 }
 
 @end
