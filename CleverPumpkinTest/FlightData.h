@@ -23,7 +23,7 @@
 @property(nonatomic) NSUInteger price;
 
 //Detail Info
-@property(nonatomic, strong) NSString *description;
+@property(nonatomic, strong) NSString *flightDescription;
 @property(nonatomic, strong) NSURL *photoURL;
 
 @end

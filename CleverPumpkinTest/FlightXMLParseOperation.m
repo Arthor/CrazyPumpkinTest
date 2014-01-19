@@ -207,7 +207,7 @@ static NSString* const kAttributeNameTripURL = @"src";
         self.currentFlight &&
         _type == FlightXMLType_Detail)
     {
-        self.currentFlight.description = [self.currentParsedCharacterData copy];
+        self.currentFlight.flightDescription = [self.currentParsedCharacterData copy];
     }
     
     //result: EOF

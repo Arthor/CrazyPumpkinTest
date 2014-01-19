@@ -108,7 +108,7 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
         case TableViewSections_Description:
         {
             cell = generalCell(kCellIdentifierDescription);
-            cell.textLabel.text = self.flightData.description;
+            cell.textLabel.text = self.flightData.flightDescription;
         }
             break;
         
