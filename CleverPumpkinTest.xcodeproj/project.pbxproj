@@ -27,6 +27,7 @@
 		ACE4E3E9188BC29200482F4C /* FlightsStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3E8188BC29200482F4C /* FlightsStorage.m */; };
 		ACE4E3EE188BE58100482F4C /* FlightInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3ED188BE58100482F4C /* FlightInfoCell.m */; };
 		ACE4E3F0188BE59500482F4C /* FlightInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE4E3EF188BE59500482F4C /* FlightInfoCell.xib */; };
+		ACE4E3F3188BFC9F00482F4C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3F2188BFC9F00482F4C /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		ACE4E3EC188BE58100482F4C /* FlightInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightInfoCell.h; sourceTree = "<group>"; };
 		ACE4E3ED188BE58100482F4C /* FlightInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightInfoCell.m; sourceTree = "<group>"; };
 		ACE4E3EF188BE59500482F4C /* FlightInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlightInfoCell.xib; sourceTree = "<group>"; };
+		ACE4E3F1188BFC9F00482F4C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		ACE4E3F2188BFC9F00482F4C /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 		ACE4E3E6188BB59C00482F4C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				ACE4E3F1188BFC9F00482F4C /* DetailViewController.h */,
+				ACE4E3F2188BFC9F00482F4C /* DetailViewController.m */,
 				ACE4E3E3188BB12100482F4C /* FlightListViewController.h */,
 				ACE4E3E4188BB12100482F4C /* FlightListViewController.m */,
 			);
@@ -319,6 +324,7 @@
 			files = (
 				AC1E7F08188796820055324B /* AppDelegate.m in Sources */,
 				AC1E7F2B18879DA60055324B /* NetworkLoader.m in Sources */,
+				ACE4E3F3188BFC9F00482F4C /* DetailViewController.m in Sources */,
 				ACE4E3E5188BB12100482F4C /* FlightListViewController.m in Sources */,
 				AC1E7F04188796820055324B /* main.m in Sources */,
 				AC1E7F331887A8C00055324B /* FlightData.m in Sources */,

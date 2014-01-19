@@ -10,6 +10,7 @@
 #import "FlightData.h"
 
 NSString *kFlightXMLParsed = @"kFlightXMLParsed";
+NSString *kFlightDetailedXMLParsed = @"kFlightDetailedXMLParsed";
 NSString *kFlightXMLResultKey = @"kFlightXMLResultKey";
 
 NSString *kFlightXMLErrorNotificationName = @"kFlightXMLErrorNotificationName";
@@ -25,6 +26,9 @@ static NSString* const kElementNameFlight = @"flight";
 static NSString* const kElementNamePrice = @"price";
 static NSString* const kElementNameResult = @"result";
 
+static NSString* const kElementNameDescription = @"description";
+static NSString* const kElementNamePhoto = @"photo";
+
 static NSString* const kAttributeNameTripDuration = @"duration";
 static NSString* const kAttributeNameTripDate = @"date";
 static NSString* const kAttributeNameTripTime = @"time";
@@ -32,6 +36,7 @@ static NSString* const kAttributeNameTripCity = @"city";
 static NSString* const kAttributeNameTripNumber = @"number";
 static NSString* const kAttributeNameTripCarrier = @"carrier";
 static NSString* const kAttributeNameTripEq = @"eq";
+static NSString* const kAttributeNameTripURL = @"src";
 
 @interface FlightXMLParseOperation()<NSXMLParserDelegate>
 
@@ -48,15 +53,17 @@ static NSString* const kAttributeNameTripEq = @"eq";
     BOOL _accumulatingParsedCharacterData;
     BOOL _didAbortParsing;
     NSUInteger _parsedFlightsCounter;
+    FlightXMLType _type;
 }
 
 #pragma mark - Initialization
 
-- (id)initWithData:(NSData *)parseData
+- (id)initWithData:(NSData *)parseData andXMLType:(FlightXMLType)type;
 {
     self = [super init];
     if (self)
     {
+        _type = type;
         _flightXMLData = [parseData copy];
         _currentParseBatch = [[NSMutableArray alloc] init];
         _currentParsedCharacterData = [[NSMutableString alloc] init];
@@ -72,9 +79,14 @@ static NSString* const kAttributeNameTripEq = @"eq";
         NSLog(@"%@", flightData);
     
     assert([NSThread isMainThread]);
-    [[NSNotificationCenter defaultCenter] postNotificationName:kFlightXMLParsed
-                                                        object:self
-                                                      userInfo:@{kFlightXMLResultKey: flightsXML}];
+    if (_type == FlightXMLType_General)
+        [[NSNotificationCenter defaultCenter] postNotificationName:kFlightXMLParsed
+                                                            object:self
+                                                          userInfo:@{kFlightXMLResultKey: flightsXML}];
+    else if (_type == FlightXMLType_Detail)
+        [[NSNotificationCenter defaultCenter] postNotificationName:kFlightDetailedXMLParsed
+                                                            object:self
+                                                          userInfo:@{kFlightXMLResultKey : flightsXML}];
 }
 
 #pragma mark - NSOperation
@@ -151,7 +163,19 @@ static NSString* const kAttributeNameTripEq = @"eq";
         _accumulatingParsedCharacterData = YES;
         [self.currentParsedCharacterData setString:@""];
     }
-    
+    else if ([elementName isEqualToString:kElementNameDescription] &&
+             _type == FlightXMLType_Detail)
+    {
+        _accumulatingParsedCharacterData = YES;
+        [self.currentParsedCharacterData setString:@""];
+    }
+    else if ([elementName isEqualToString:kElementNamePhoto] &&
+             _type == FlightXMLType_Detail)
+    {
+        NSString *url = attributeDict[kAttributeNameTripURL];
+        if ([url length])
+            self.currentFlight.photoURL = [NSURL URLWithString:url];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser
@@ -178,6 +202,12 @@ static NSString* const kAttributeNameTripEq = @"eq";
     if ([elementName isEqualToString:kElementNamePrice] && self.currentFlight )
     {
         self.currentFlight.price = [self.currentParsedCharacterData integerValue];
+    }
+    if ([elementName isEqualToString:kElementNameDescription] &&
+        self.currentFlight &&
+        _type == FlightXMLType_Detail)
+    {
+        self.currentFlight.description = [self.currentParsedCharacterData copy];
     }
     
     //result: EOF

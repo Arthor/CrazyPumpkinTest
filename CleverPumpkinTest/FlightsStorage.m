@@ -17,10 +17,14 @@
 @property (nonatomic, strong) NSArray *internalFlightsList;
 @property (nonatomic, strong) NetworkLoader *networkLoader;
 @property (nonatomic, strong) NSTimer *updateTimer;
+@property (nonatomic, strong) NetworkLoader *flightLoader;
+@property (nonatomic, copy) detailedFlightCompletionHandler_t detailedFlightCompletionHandler;
 
 @end
 
 @implementation FlightsStorage
+
+#pragma mark - Initalization
 
 - (id)init
 {
@@ -37,10 +41,30 @@
                                                  selector:@selector(parserError:)
                                                      name:kFlightXMLErrorNotificationName
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(addParsedDetailedFlight:)
+                                                     name:kFlightDetailedXMLParsed
+                                                   object:nil];
+        
         [self.networkLoader fetchNewData];
     }
     
     return self;
+}
+
+#pragma mark - Interface
+- (NSError*)fetchDataForFlight:(NSUInteger)flightNumber
+          withComletionHandler:(detailedFlightCompletionHandler_t)completionHandler
+{
+    NSError *error = nil;
+    
+    self.detailedFlightCompletionHandler = completionHandler;
+    
+    [self.flightLoader cancelLoading];
+    self.flightLoader = [[NetworkLoader alloc] init];
+    [self.flightLoader fetchDataForFlight:flightNumber];
+    
+    return error;
 }
 
 - (NSArray *)flightsList
@@ -60,6 +84,13 @@
     self.internalFlightsList = parsedFlights;
     if ([self.delegate respondsToSelector:@selector(flightsUpdated:)])
         [self.delegate flightsUpdated:self.internalFlightsList];
+}
+
+- (void)addParsedDetailedFlight:(NSNotification*)notification
+{
+    assert([NSThread isMainThread]);
+    NSArray *parsedFlights = [[notification userInfo] valueForKey:kFlightXMLResultKey];
+    self.detailedFlightCompletionHandler([parsedFlights firstObject]);
 }
 
 - (void)parserError:(NSNotification*)notification

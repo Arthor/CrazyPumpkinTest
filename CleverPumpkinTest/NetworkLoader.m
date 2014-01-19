@@ -12,10 +12,14 @@
 const CGFloat kUpdateInterval = 30.0f;
 const CGFloat kTimeoutInterval = 30.0f;
 NSString* const kCleverPumpkinURL = @"http://cleverpumpkin.ru/test/flights0541.xml";
+NSString* const kCleverPumpkinDetailFlightURL = @"http://cleverpumpkin.ru/test/flights/";
+
 
 @interface NetworkLoader()
+{
+    NSUInteger _flightNumber;
+}
 
-@property (nonatomic, strong) NSTimer *updateTimer;
 @property (nonatomic, strong) NSOperationQueue *parseQueue;
 @property (nonatomic, strong) NSData *xmlData;
 @property (nonatomic) BOOL isLoading;
@@ -25,11 +29,32 @@ NSString* const kCleverPumpkinURL = @"http://cleverpumpkin.ru/test/flights0541.x
 
 @implementation NetworkLoader
 
+- (void)cancelLoading
+{
+    [self.parseQueue cancelAllOperations];
+    self.parseQueue = nil;
+}
+
+- (NSError*)fetchDataForFlight:(NSUInteger)flightNumber
+{
+    _flightNumber = flightNumber;
+    NSError *error = [self fetchNewDataOfType:FlightXMLType_Detail];
+    return error;
+}
+
 - (NSError*)fetchNewData
+{
+    NSError *error = [self fetchNewDataOfType:FlightXMLType_General];
+    return error;
+}
+
+- (NSError*)fetchNewDataOfType:(FlightXMLType)type
 {
     NSError *error = nil;
     if (self.isLoading)
-        return error;
+        return [NSError errorWithDomain:@"HTTP error"
+                                   code:NetworkLoaderError_ConnectionIsAlreadyRunning
+                               userInfo:nil];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:kCleverPumpkinURL]
                                              cachePolicy:NSURLRequestReloadRevalidatingCacheData
@@ -47,7 +72,7 @@ NSString* const kCleverPumpkinURL = @"http://cleverpumpkin.ru/test/flights0541.x
         {
             [self.parseQueue cancelAllOperations];
             FlightXMLParseOperation *parseOperation =
-            [[FlightXMLParseOperation alloc] initWithData:data];
+                [[FlightXMLParseOperation alloc] initWithData:data andXMLType:type];
             [self.parseQueue addOperation:parseOperation];
         }
         else
@@ -72,7 +97,8 @@ NSString* const kCleverPumpkinURL = @"http://cleverpumpkin.ru/test/flights0541.x
 
 - (void)handleError:(NSError*)connectionError
 {
-    
+    if ([self.delegate respondsToSelector:@selector(fetchedDataWithError:)])
+        [self.delegate fetchedDataWithError:connectionError];
 }
 
 @end

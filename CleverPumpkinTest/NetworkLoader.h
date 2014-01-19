@@ -27,5 +27,7 @@ typedef NS_ENUM(NSUInteger, NetworkLoaderErrorCodes)
 @property (nonatomic, weak) id<NetworkLoaderProtocol> delegate;
 
 - (NSError*)fetchNewData;
+- (NSError*)fetchDataForFlight:(NSUInteger)flightNumber;
+- (void)cancelLoading;
 
 @end

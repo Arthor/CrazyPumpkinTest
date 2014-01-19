@@ -22,4 +22,8 @@
 @property(nonatomic) NSUInteger number;
 @property(nonatomic) NSUInteger price;
 
+//Detail Info
+@property(nonatomic, strong) NSString *description;
+@property(nonatomic, strong) NSURL *photoURL;
+
 @end

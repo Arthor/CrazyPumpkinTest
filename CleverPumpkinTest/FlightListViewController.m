@@ -11,6 +11,7 @@
 #import "FlightXMLParseOperation.h"
 #import "FlightsStorage.h"
 #import "FlightInfoCell.h"
+#import "DetailViewController.h"
 
 static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 
@@ -141,6 +142,15 @@ static inline NSArray* NSIndexSetToNSIndexPathArray(NSIndexSet *indexes, NSUInte
     FlightData *currentFlight = self.flightsStorage.flightsList[indexPath.row];
     [cell configureForFlight:currentFlight];
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView
+    didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FlightData *clickedFlight = self.flightsStorage.flightsList[indexPath.row];
+    DetailViewController *detailVC = [[DetailViewController alloc] initWithFlightData:clickedFlight];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 @end

@@ -17,12 +17,15 @@
 
 @end
 
+typedef void (^detailedFlightCompletionHandler_t)(FlightData*);
+
 @interface FlightsStorage : NSObject
 
 @property (nonatomic, weak) id<FlightsStorageProtocol> delegate;
 @property (nonatomic, readonly, strong) NSArray *flightsList;
 
 - (NSError*)fetchNewData;
-
+- (NSError*)fetchDataForFlight:(NSUInteger)flightNumber
+          withComletionHandler:(detailedFlightCompletionHandler_t)completionHandler;
 
 @end
