@@ -18,7 +18,8 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 
 @interface FlightListViewController ()<FlightsStorageProtocol,
                                        UITableViewDataSource,
-                                       UITableViewDelegate>
+                                       UITableViewDelegate,
+                                       UIActionSheetDelegate>
 
 @property (nonatomic, strong) NSArray *cachedFlightList;
 @property (nonatomic, strong) UITableView *tableView;
@@ -34,6 +35,14 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                                target:self
+                                                                                action:@selector(sortButtonPressed:)];
+    
+    self.navigationItem.rightBarButtonItem = sortButton;
+    
+    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds
                                                   style:UITableViewStylePlain];
     self.tableView.delegate = self;
@@ -97,7 +106,6 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
     [self displayActivityIndicator:NO];
     if (!updatedFlights)
         return;
-    
 
     __weak typeof(self) weakSelf = self;
     NSIndexSet *indexesToRemove = [NSIndexSet indexSet];
@@ -116,11 +124,25 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
         return ![weakSelf.cachedFlightList containsObject:obj];
     }];
     
+    NSIndexSet *indexesToUpdate = [NSIndexSet indexSet];
+    indexesToUpdate = [self.cachedFlightList indexesOfObjectsPassingTest:^BOOL(id obj,
+                                                                        NSUInteger idx,
+                                                                        BOOL *stop)
+    {
+        if ([updatedFlights containsObject:obj] &&
+            ![obj isEqual:updatedFlights[idx]]) {
+            return YES;
+        }
+        return NO;
+    }];
+    
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:NSIndexSetToNSIndexPathArray(indexesToAdd, 0)
                           withRowAnimation:UITableViewRowAnimationRight];
     [self.tableView deleteRowsAtIndexPaths:NSIndexSetToNSIndexPathArray(indexesToRemove, 0)
                           withRowAnimation:UITableViewRowAnimationLeft];
+    [self.tableView reloadRowsAtIndexPaths:NSIndexSetToNSIndexPathArray(indexesToUpdate, 0)
+                          withRowAnimation:UITableViewRowAnimationTop];
     [self.tableView endUpdates];
     
     self.cachedFlightList = updatedFlights;
@@ -177,6 +199,27 @@ static inline NSArray* NSIndexSetToNSIndexPathArray(NSIndexSet *indexes, NSUInte
         NSLog(@"Detailed info of flight fetched: %@", newFlightData);
     }];
     [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+#pragma mark - Action Handling
+- (void)sortButtonPressed:(id)sender
+{
+    UIBarButtonItem *barButtonItem = (UIBarButtonItem*)sender;
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Sort flights"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"By price", @"By duration", nil];
+    [actionSheet showFromBarButtonItem:barButtonItem animated:YES];
+}
+
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) //Price
+        [self.flightsStorage sortFlightsBy:SortFlightParameter_Price];
+    else if (buttonIndex == 1)//Duration
+        [self.flightsStorage sortFlightsBy:SortFlightParameter_Duration];
 }
 
 @end

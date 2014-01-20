@@ -72,6 +72,41 @@
     return [self.internalFlightsList copy];
 }
 
+- (void)sortFlightsBy:(SoftFlightsParameter)parameter
+{
+    if (![self.flightsList count])
+        return;
+    
+    if (parameter == SortFlightParameter_Price)
+        self.internalFlightsList = [self.internalFlightsList
+                                    sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2)
+        {
+            FlightData *flight1 = (FlightData*)obj1;
+            FlightData *flight2 = (FlightData*)obj2;
+            if (flight1.price < flight2.price)
+                return NSOrderedAscending;
+            else if (flight1.price > flight2.price)
+                return NSOrderedDescending;
+            return NSOrderedSame;
+        }];
+    else if (parameter == SortFlightParameter_Duration)
+        self.internalFlightsList = [self.internalFlightsList
+                                    sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2)
+        {
+            FlightData *flight1 = (FlightData*)obj1;
+            FlightData *flight2 = (FlightData*)obj2;
+            if (flight1.flightDurationInterval < flight2.flightDurationInterval)
+                return NSOrderedAscending;
+            else if (flight1.flightDurationInterval > flight2.flightDurationInterval)
+                return NSOrderedDescending;
+            return NSOrderedSame;
+        }];
+    
+    if ([self.delegate respondsToSelector:@selector(flightsUpdated:)])
+        [self.delegate flightsUpdated:self.internalFlightsList];
+}
+
+
 #pragma mark - NSNotification Callbacks
 - (void)addParsedFlight:(NSNotification*)notification
 {

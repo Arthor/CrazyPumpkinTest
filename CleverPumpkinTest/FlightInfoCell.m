@@ -21,6 +21,7 @@
     self.carrier.text = flightData.carrier;
     self.number.text = @( flightData.number ).stringValue;
     self.price.text = @( flightData.price ).stringValue;
+    self.flightDuration.text = flightData.flightDuration;
 }
 
 @end

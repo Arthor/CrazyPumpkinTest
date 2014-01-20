@@ -63,6 +63,9 @@ static NSString* const kAttributeNameTripURL = @"src";
     self = [super init];
     if (self)
     {
+        self.dateFormatter = [[NSDateFormatter alloc] init];
+        [self.dateFormatter setDateFormat:@"h:m"];
+        
         _type = type;
         _flightXMLData = [parseData copy];
         _currentParseBatch = [[NSMutableArray alloc] init];
@@ -121,6 +124,11 @@ static NSString* const kAttributeNameTripURL = @"src";
     {
         self.currentFlight = [[FlightData alloc] init];
         NSString *flightDuration = attributeDict[kAttributeNameTripDuration];
+        NSDate *start = [self.dateFormatter dateFromString:@"00:00"];
+        NSDate *end = [self.dateFormatter dateFromString:flightDuration];
+        NSTimeInterval interval = [end timeIntervalSinceDate:start];
+        if (interval > 0)
+            self.currentFlight.flightDurationInterval = interval;
         if ([flightDuration length])
             self.currentFlight.flightDuration = flightDuration;
     }

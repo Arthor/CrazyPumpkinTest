@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *carrier;
 @property (weak, nonatomic) IBOutlet UILabel *number;
 @property (weak, nonatomic) IBOutlet UILabel *price;
+@property (weak, nonatomic) IBOutlet UILabel *flightDuration;
 
 - (void)configureForFlight:(FlightData*)flightData;
 

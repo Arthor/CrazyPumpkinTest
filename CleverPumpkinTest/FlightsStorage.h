@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "FlightData.h"
 
+typedef NS_ENUM(NSUInteger, SoftFlightsParameter)
+{
+    SortFlightParameter_Price,
+    SortFlightParameter_Duration
+};
+
 @protocol FlightsStorageProtocol <NSObject>
 
 @optional
@@ -27,5 +33,7 @@ typedef void (^detailedFlightCompletionHandler_t)(FlightData*);
 - (NSError*)fetchNewData;
 - (NSError*)fetchDataForFlight:(NSUInteger)flightNumber
           withComletionHandler:(detailedFlightCompletionHandler_t)completionHandler;
+
+- (void)sortFlightsBy:(SoftFlightsParameter)parameter;
 
 @end
