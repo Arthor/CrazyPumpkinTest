@@ -22,6 +22,7 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 
 @property (nonatomic, strong) NSArray *cachedFlightList;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic) CGFloat cellHeight;
 
 @end
@@ -46,6 +47,7 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
     [self.view addSubview:self.tableView];
     self.title = @"Flight List";
     [self.flightsStorage fetchNewData];
+    [self displayActivityIndicator:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -70,10 +72,29 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
     [alertView show];
 }
 
+- (void)displayActivityIndicator:(BOOL)display
+{
+    if (display)
+    {
+        self.activityIndicator =
+            [[UIActivityIndicatorView alloc]
+             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self.tableView addSubview:self.activityIndicator];
+        //TODO: create offset for iOS7 translucency bar
+        self.activityIndicator.center = self.tableView.center;
+        [self.activityIndicator startAnimating];
+    }
+    else
+    {
+        [self.activityIndicator stopAnimating];
+        [self.activityIndicator removeFromSuperview];
+    }
+}
+
 #pragma mark - FlightsStorageProtocol
 - (void)flightsUpdated:(NSArray*)updatedFlights
 {
-    
+    [self displayActivityIndicator:NO];
     if (!updatedFlights)
         return;
     
@@ -121,6 +142,8 @@ static inline NSArray* NSIndexSetToNSIndexPathArray(NSIndexSet *indexes, NSUInte
 
 - (void)failedWithError:(NSError*)error
 {
+    [self displayActivityIndicator:NO];
+    [self.tableView reloadData];
     [self handleError:error];
 }
 
