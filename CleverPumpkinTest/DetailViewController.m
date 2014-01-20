@@ -24,9 +24,13 @@ static NSString* const kCellIdentifierGeneral = @"kCellIdentifierGeneral";
 static NSString* const kCellIdentifierDescription = @"kCellIdentifierDescription";
 static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
 
-@interface DetailViewController ()<UITableViewDataSource>
+@interface DetailViewController ()<UITableViewDataSource, UITableViewDelegate>
+{
+    CGRect _imageFrame;
+}
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -40,8 +44,21 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
     if (self)
     {
         _flightData = flightData;
+
     }
     return self;
+}
+
+#pragma mark - KVO
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    NSLog(@"Key path: %@, %@, %@", keyPath, object, change);
+    if ([keyPath isEqualToString:@"image"])
+        [self updateImage];
+        
 }
 
 #pragma mark - ViewController Lifecycle
@@ -52,6 +69,7 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds
                                                   style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
     self.title = [NSString stringWithFormat:@"%@ %@",
                   self.flightData.carrier,
@@ -74,6 +92,7 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
 {
     return TableViewSections_NumberOfSection;
 }
+
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -102,6 +121,15 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
             break;
     }
     return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == TableViewSections_Image &&
+        self.flightData.image)
+        return CGRectGetHeight(_imageFrame);
+    
+    return 44.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -164,7 +192,12 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
         case TableViewSections_Image:
         {
             cell = generalCell(kCellIdentifierImage);
-            
+            if (self.flightData.image)
+            {
+                [cell.contentView addSubview:self.imageView];
+            }
+            else
+                cell.textLabel.text = @"No image";
         }
             break;
             
@@ -173,6 +206,25 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
     }
     
     return cell;
+}
+
+- (void)updateImage
+{
+    if (![self.flightData image])
+        return;
+    
+    self.imageView = [[UIImageView alloc] initWithImage:self.flightData.image];
+    CGFloat imgRatio = CGRectGetHeight(self.imageView.frame) / CGRectGetWidth(self.imageView.frame);
+    _imageFrame = self.imageView.frame;
+    _imageFrame.size.width = CGRectGetWidth(self.view.bounds);
+    _imageFrame.size.height = _imageFrame.size.width  * imgRatio;
+    self.imageView.frame = _imageFrame;
+    
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0
+                                                                inSection:TableViewSections_Image]]
+                                                withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
 }
 
 - (void)updateTableViewFromOldData:(FlightData*)oldData toNewData:(FlightData*)newData
@@ -186,7 +238,7 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
                                                       inSection:TableViewSections_Description]];
     }
     
-    if (![oldData.photoURL isEqual:newData.photoURL])
+    if (![oldData.image isEqual:newData.image])
     {
         [indexesToUpdate addObject:[NSIndexPath indexPathForRow:0
                                                       inSection:TableViewSections_Image]];
@@ -208,6 +260,10 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
     FlightData *oldFlightData = _flightData;
     _flightData = newFlightData;
     [self updateTableViewFromOldData:oldFlightData toNewData:newFlightData];
+    [_flightData addObserver:self
+                  forKeyPath:@"image"
+                     options:NSKeyValueObservingOptionNew
+                     context:nil];
 }
 
 @end
