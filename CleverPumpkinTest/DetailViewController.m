@@ -144,10 +144,10 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
     NSMutableArray *indexesToUpdate = [NSMutableArray array];
     
     //TODO: It's possible to check for the whole bunch of date, not only image;
-    if (![oldData.flightDuration isEqualToString:newData.flightDuration])
+    if (![oldData.flightDescription isEqualToString:newData.flightDescription])
     {
         [indexesToUpdate addObject:[NSIndexPath indexPathForRow:0
-                                                      inSection:TableViewSections_FlightDuration]];
+                                                      inSection:TableViewSections_Description]];
     }
     
     if (![oldData.photoURL isEqual:newData.photoURL])
