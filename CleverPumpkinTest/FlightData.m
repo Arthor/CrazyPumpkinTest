@@ -21,4 +21,28 @@
     return description;
 }
 
+- (void)setPhotoURL:(NSURL *)photoURL
+{
+    _photoURL = photoURL;
+    static BOOL isLoading = NO;
+    if (isLoading)
+        return;
+    NSURLRequest *request = [NSURLRequest requestWithURL:_photoURL];
+    
+    __weak typeof(self) weakSelf = self;
+    void(^completionHandler)(NSURLResponse *, NSData *, NSError *error) =
+    ^(NSURLResponse *response, NSData *data, NSError *connectionError)
+    {
+        UIImage *image = [UIImage imageWithData:data];
+        if (image)
+            weakSelf.image = image;
+        isLoading = NO;
+    };
+
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:completionHandler];
+    isLoading = YES;
+}
+
 @end

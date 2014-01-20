@@ -25,5 +25,6 @@
 //Detail Info
 @property(nonatomic, strong) NSString *flightDescription;
 @property(nonatomic, strong) NSURL *photoURL;
+@property(nonatomic, strong) UIImage *image;
 
 @end
