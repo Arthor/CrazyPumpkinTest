@@ -12,8 +12,7 @@
 
 typedef NS_ENUM(NSUInteger, TableViewSections)
 {
-    TableViewSections_Takeoff,
-    TableViewSections_Landing,
+    TableViewSections_TakeoffLanding,
     TableViewSections_FlightDuration,
     TableViewSections_Price,
     TableViewSections_Description,
@@ -64,12 +63,45 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
 - (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section
 {
+    if (section == TableViewSections_TakeoffLanding)
+    {
+        return 2;
+    }
     return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return TableViewSections_NumberOfSection;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case TableViewSections_TakeoffLanding:
+            return @"Travel Departure Time";
+            break;
+            
+        case TableViewSections_FlightDuration:
+            return @"Flight duration";
+            break;
+        
+        case TableViewSections_Price:
+            return @"Price";
+            break;
+        
+        case TableViewSections_Description:
+            return @"Description";
+            break;
+        
+        case TableViewSections_Image:
+            return @"Image";
+            break;
+            
+        default:
+            break;
+    }
+    return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -82,25 +114,29 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
         if (!cell)
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
                                           reuseIdentifier:identifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     };
     
     switch (indexPath.section) {
-        case TableViewSections_Takeoff:
+        case TableViewSections_TakeoffLanding:
         {
             cell = generalCell(kCellIdentifierGeneral);
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
-                                   self.flightData.takeoffDate,
-                                   self.flightData.takeoffHour];
-        }
-            break;
-            
-        case TableViewSections_Landing:
-        {
-            cell = generalCell(kCellIdentifierGeneral);
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
-                                   self.flightData.landingDate,
-                                   self.flightData.landingHour];
+            if (indexPath.row == 0)
+            {
+                cell.textLabel.text = @"Takeoff Date";
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",
+                                       self.flightData.takeoffDate,
+                                       self.flightData.takeoffHour];
+            }
+            else if (indexPath.row == 1)
+            {
+                cell.textLabel.text = @"Landing Date";
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",
+                                        self.flightData.landingDate,
+                                             self.flightData.landingHour];
+            }
+
         }
             break;
             
