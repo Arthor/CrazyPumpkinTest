@@ -10,7 +10,7 @@
 
 @interface FlightData : NSObject
 
-@property(nonatomic, strong) NSString* flightDuration;
+@property(nonatomic, strong) NSString *flightDuration;
 @property(nonatomic, strong) NSString *takeoffDate;
 @property(nonatomic, strong) NSString *takeoffHour;
 @property(nonatomic, strong) NSString *landingDate;

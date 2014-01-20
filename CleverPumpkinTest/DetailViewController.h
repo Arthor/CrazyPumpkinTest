@@ -12,7 +12,7 @@
 
 @interface DetailViewController : UIViewController
 
-@property (nonatomic, weak) FlightData *flightData;
+@property (nonatomic, strong) FlightData *flightData;
 
 - (instancetype)initWithFlightData:(FlightData*)flightData;
 

@@ -55,8 +55,18 @@ NSString* const kCleverPumpkinDetailFlightURL = @"http://cleverpumpkin.ru/test/f
         return [NSError errorWithDomain:@"HTTP error"
                                    code:NetworkLoaderError_ConnectionIsAlreadyRunning
                                userInfo:nil];
+    NSURL *url = nil;
+    if (type == FlightXMLType_Detail)
+    {
+        url = [NSURL URLWithString:kCleverPumpkinDetailFlightURL];
+        url = [url URLByAppendingPathComponent:[NSString stringWithFormat:@"%d.xml", _flightNumber]];
+    }
+    else if (FlightXMLType_General == type)
+    {
+        url = [NSURL URLWithString:kCleverPumpkinURL];
+    }
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:kCleverPumpkinURL]
+    NSURLRequest *request = [NSURLRequest requestWithURL:url
                                              cachePolicy:NSURLRequestReloadRevalidatingCacheData
                                          timeoutInterval:kTimeoutInterval];
     

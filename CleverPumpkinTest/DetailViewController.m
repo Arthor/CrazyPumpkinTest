@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, TableViewSections)
 {
     TableViewSections_Takeoff,
     TableViewSections_Landing,
+    TableViewSections_FlightDuration,
     TableViewSections_Price,
     TableViewSections_Description,
     TableViewSections_Image,
@@ -32,6 +33,8 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
 
 @implementation DetailViewController
 
+#pragma mark - Initialization
+
 - (instancetype)initWithFlightData:(FlightData*)flightData
 {
     self = [super init];
@@ -41,6 +44,8 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
     }
     return self;
 }
+
+#pragma mark - ViewController Lifecycle
 
 - (void)viewDidLoad
 {
@@ -55,6 +60,7 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
 }
 
 #pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section
 {
@@ -105,6 +111,13 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
         }
             break;
             
+        case TableViewSections_FlightDuration:
+        {
+            cell = generalCell(kCellIdentifierGeneral);
+            cell.textLabel.text = self.flightData.flightDuration;
+        }
+            break;
+            
         case TableViewSections_Description:
         {
             cell = generalCell(kCellIdentifierDescription);
@@ -124,6 +137,41 @@ static NSString* const kCellIdentifierImage = @"kCellIdentifierImage";
     }
     
     return cell;
+}
+
+- (void)updateTableViewFromOldData:(FlightData*)oldData toNewData:(FlightData*)newData
+{
+    NSMutableArray *indexesToUpdate = [NSMutableArray array];
+    
+    //TODO: It's possible to check for the whole bunch of date, not only image;
+    if (![oldData.flightDuration isEqualToString:newData.flightDuration])
+    {
+        [indexesToUpdate addObject:[NSIndexPath indexPathForRow:0
+                                                      inSection:TableViewSections_FlightDuration]];
+    }
+    
+    if (![oldData.photoURL isEqual:newData.photoURL])
+    {
+        [indexesToUpdate addObject:[NSIndexPath indexPathForRow:0
+                                                      inSection:TableViewSections_Image]];
+    }
+    
+    if (![indexesToUpdate count])
+        return;
+    
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:indexesToUpdate
+                          withRowAnimation:UITableViewRowAnimationLeft];
+    
+    [self.tableView endUpdates];
+}
+
+#pragma mark - Setters/Getters
+- (void)setFlightData:(FlightData *)newFlightData
+{
+    FlightData *oldFlightData = _flightData;
+    _flightData = newFlightData;
+    [self updateTableViewFromOldData:oldFlightData toNewData:newFlightData];
 }
 
 @end

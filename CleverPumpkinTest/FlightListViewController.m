@@ -28,14 +28,7 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 
 @implementation FlightListViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+#pragma mark - ViewController Lifecycle
 
 - (void)viewDidLoad
 {
@@ -59,6 +52,8 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 {
     self.flightsStorage.delegate = self;
 }
+
+#pragma mark - Error Handling
 
 - (void)handleError:(NSError *)error
 {
@@ -150,6 +145,12 @@ static inline NSArray* NSIndexSetToNSIndexPathArray(NSIndexSet *indexes, NSUInte
 {
     FlightData *clickedFlight = self.flightsStorage.flightsList[indexPath.row];
     DetailViewController *detailVC = [[DetailViewController alloc] initWithFlightData:clickedFlight];
+    [self.flightsStorage fetchDataForFlight:clickedFlight.number
+                       withComletionHandler:^(FlightData *newFlightData)
+    {
+        detailVC.flightData = newFlightData;
+        NSLog(@"Detailed info of flight fetched: %@", newFlightData);
+    }];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
