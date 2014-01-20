@@ -33,6 +33,7 @@
     void(^completionHandler)(NSURLResponse *, NSData *, NSError *error) =
     ^(NSURLResponse *response, NSData *data, NSError *connectionError)
     {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         UIImage *image = [UIImage imageWithData:data];
         if (image)
             weakSelf.image = image;
@@ -42,6 +43,7 @@
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:completionHandler];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     isLoading = YES;
 }
 

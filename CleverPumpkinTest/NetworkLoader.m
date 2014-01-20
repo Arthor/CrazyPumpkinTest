@@ -74,6 +74,7 @@ NSString* const kCleverPumpkinDetailFlightURL = @"http://cleverpumpkin.ru/test/f
     void(^completionHandler)(NSURLResponse *, NSData *, NSError *error) =
     ^(NSURLResponse *response, NSData *data, NSError *connectionError)
     {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         if (connectionError)
             [self handleError:connectionError];
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -100,6 +101,7 @@ NSString* const kCleverPumpkinDetailFlightURL = @"http://cleverpumpkin.ru/test/f
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:completionHandler];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     return error;
 }
 
