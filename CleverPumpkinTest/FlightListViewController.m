@@ -108,26 +108,26 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
         return;
 
     __weak typeof(self) weakSelf = self;
-    NSIndexSet *indexesToRemove = [NSIndexSet indexSet];
-    indexesToRemove = [self.cachedFlightList indexesOfObjectsPassingTest:^BOOL(id obj,
-                                                                            NSUInteger idx,
-                                                                            BOOL *stop)
+    NSIndexSet *indexesToRemove = [self.cachedFlightList
+                                   indexesOfObjectsPassingTest:^BOOL(id obj,
+                                                                     NSUInteger idx,
+                                                                     BOOL *stop)
     {
         return ![updatedFlights containsObject:obj];
     }];
     
-    NSIndexSet *indexesToAdd = [NSIndexSet indexSet];
-    indexesToAdd = [updatedFlights indexesOfObjectsPassingTest:^BOOL(id obj,
-                                                                    NSUInteger idx,
-                                                                    BOOL *stop)
+    NSIndexSet *indexesToAdd = [updatedFlights
+                                indexesOfObjectsPassingTest:^BOOL(id obj,
+                                                                  NSUInteger idx,
+                                                                  BOOL *stop)
     {
         return ![weakSelf.cachedFlightList containsObject:obj];
     }];
     
-    NSIndexSet *indexesToUpdate = [NSIndexSet indexSet];
-    indexesToUpdate = [self.cachedFlightList indexesOfObjectsPassingTest:^BOOL(id obj,
-                                                                        NSUInteger idx,
-                                                                        BOOL *stop)
+    NSIndexSet *indexesToUpdate = [self.cachedFlightList
+                                   indexesOfObjectsPassingTest:^BOOL(id obj,
+                                                                     NSUInteger idx,
+                                                                     BOOL *stop)
     {
         if ([updatedFlights containsObject:obj] &&
             ![obj isEqual:updatedFlights[idx]]) {
