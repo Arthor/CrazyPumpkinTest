@@ -59,7 +59,7 @@ NSString* const kCleverPumpkinDetailFlightURL = @"http://cleverpumpkin.ru/test/f
     if (type == FlightXMLType_Detail)
     {
         url = [NSURL URLWithString:kCleverPumpkinDetailFlightURL];
-        url = [url URLByAppendingPathComponent:[NSString stringWithFormat:@"%d.xml", _flightNumber]];
+        url = [url URLByAppendingPathComponent:[NSString stringWithFormat:@"%ld.xml", _flightNumber]];
     }
     else if (FlightXMLType_General == type)
     {
