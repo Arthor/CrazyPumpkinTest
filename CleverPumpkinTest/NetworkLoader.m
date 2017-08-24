@@ -78,8 +78,7 @@ NSString* const kCleverPumpkinDetailFlightURL = @"http://cleverpumpkin.ru/test/f
         if (connectionError)
             [self handleError:connectionError];
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-        if ((([httpResponse statusCode]/100) == 2) &&
-            [[response MIMEType] isEqual:@"application/xml"])
+        if ((([httpResponse statusCode]/100) == 2))
         {
             [self.parseQueue cancelAllOperations];
             FlightXMLParseOperation *parseOperation =
