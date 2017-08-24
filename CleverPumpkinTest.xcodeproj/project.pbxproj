@@ -7,16 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC1E7EF8188796820055324B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EF7188796820055324B /* Foundation.framework */; };
-		AC1E7EFA188796820055324B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EF9188796820055324B /* CoreGraphics.framework */; };
-		AC1E7EFC188796820055324B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EFB188796820055324B /* UIKit.framework */; };
 		AC1E7F02188796820055324B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F00188796820055324B /* InfoPlist.strings */; };
 		AC1E7F04188796820055324B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F03188796820055324B /* main.m */; };
 		AC1E7F08188796820055324B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F07188796820055324B /* AppDelegate.m */; };
 		AC1E7F0A188796820055324B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F09188796820055324B /* Images.xcassets */; };
-		AC1E7F11188796820055324B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7F10188796820055324B /* XCTest.framework */; };
-		AC1E7F12188796820055324B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EF7188796820055324B /* Foundation.framework */; };
-		AC1E7F13188796820055324B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E7EFB188796820055324B /* UIKit.framework */; };
 		AC1E7F1B188796820055324B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F19188796820055324B /* InfoPlist.strings */; };
 		AC1E7F1D188796820055324B /* CleverPumpkinTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F1C188796820055324B /* CleverPumpkinTestTests.m */; };
 		AC1E7F2B18879DA60055324B /* NetworkLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F2A18879DA60055324B /* NetworkLoader.m */; };
@@ -52,9 +46,6 @@
 
 /* Begin PBXFileReference section */
 		AC1E7EF4188796820055324B /* CleverPumpkinTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleverPumpkinTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC1E7EF7188796820055324B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AC1E7EF9188796820055324B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		AC1E7EFB188796820055324B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AC1E7EFF188796820055324B /* CleverPumpkinTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CleverPumpkinTest-Info.plist"; sourceTree = "<group>"; };
 		AC1E7F01188796820055324B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC1E7F03188796820055324B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,7 +53,6 @@
 		AC1E7F07188796820055324B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AC1E7F09188796820055324B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AC1E7F0F188796820055324B /* CleverPumpkinTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleverPumpkinTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC1E7F10188796820055324B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AC1E7F18188796820055324B /* CleverPumpkinTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CleverPumpkinTestTests-Info.plist"; sourceTree = "<group>"; };
 		AC1E7F1A188796820055324B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC1E7F1C188796820055324B /* CleverPumpkinTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CleverPumpkinTestTests.m; sourceTree = "<group>"; };
@@ -101,9 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1E7EFA188796820055324B /* CoreGraphics.framework in Frameworks */,
-				AC1E7EFC188796820055324B /* UIKit.framework in Frameworks */,
-				AC1E7EF8188796820055324B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,9 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1E7F11188796820055324B /* XCTest.framework in Frameworks */,
-				AC1E7F13188796820055324B /* UIKit.framework in Frameworks */,
-				AC1E7F12188796820055324B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +110,6 @@
 				AC1E7F2C18879E050055324B /* README.md */,
 				AC1E7EFD188796820055324B /* CleverPumpkinTest */,
 				AC1E7F16188796820055324B /* CleverPumpkinTestTests */,
-				AC1E7EF6188796820055324B /* Frameworks */,
 				AC1E7EF5188796820055324B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -138,17 +121,6 @@
 				AC1E7F0F188796820055324B /* CleverPumpkinTestTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		AC1E7EF6188796820055324B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AC1E7EF7188796820055324B /* Foundation.framework */,
-				AC1E7EF9188796820055324B /* CoreGraphics.framework */,
-				AC1E7EFB188796820055324B /* UIKit.framework */,
-				AC1E7F10188796820055324B /* XCTest.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AC1E7EFD188796820055324B /* CleverPumpkinTest */ = {
