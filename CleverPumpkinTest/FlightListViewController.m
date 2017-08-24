@@ -16,10 +16,7 @@
 static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 
 
-@interface FlightListViewController ()<FlightsStorageProtocol,
-                                       UITableViewDataSource,
-                                       UITableViewDelegate,
-                                       UIActionSheetDelegate>
+@interface FlightListViewController () <FlightsStorageProtocol, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *cachedFlightList;
 @property (nonatomic, strong) UITableView *tableView;
@@ -35,16 +32,11 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
-                                                                                target:self
-                                                                                action:@selector(sortButtonPressed:)];
-    
+
+    UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithTitle:@"Sort" style:UIBarButtonItemStylePlain target:self action:@selector(sortButtonPressed:)];
     self.navigationItem.rightBarButtonItem = sortButton;
-    
-    
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds
-                                                  style:UITableViewStylePlain];
+
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"FlightInfoCell" bundle:nil]
@@ -71,15 +63,9 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 
 - (void)handleError:(NSError *)error
 {
-    
     NSString *errorMessage = [error localizedDescription];
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:errorMessage
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alertController animated:true completion:nil];
 }
 
 - (void)displayActivityIndicator:(BOOL)display
@@ -139,11 +125,11 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
     
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:NSIndexSetToNSIndexPathArray(indexesToAdd, 0)
-                          withRowAnimation:UITableViewRowAnimationRight];
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView deleteRowsAtIndexPaths:NSIndexSetToNSIndexPathArray(indexesToRemove, 0)
-                          withRowAnimation:UITableViewRowAnimationLeft];
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView reloadRowsAtIndexPaths:NSIndexSetToNSIndexPathArray(indexesToUpdate, 0)
-                          withRowAnimation:UITableViewRowAnimationTop];
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
     
     self.cachedFlightList = updatedFlights;
@@ -205,22 +191,15 @@ static inline NSArray* NSIndexSetToNSIndexPathArray(NSIndexSet *indexes, NSUInte
 #pragma mark - Action Handling
 - (void)sortButtonPressed:(id)sender
 {
-    UIBarButtonItem *barButtonItem = (UIBarButtonItem*)sender;
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Sort flights"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"By price", @"By duration", nil];
-    [actionSheet showFromBarButtonItem:barButtonItem animated:YES];
-}
-
-#pragma mark - UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0) //Price
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Sort flights" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"By price" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.flightsStorage sortFlightsBy:SortFlightParameter_Price];
-    else if (buttonIndex == 1)//Duration
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"By duration" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.flightsStorage sortFlightsBy:SortFlightParameter_Duration];
+    }]];
+    [self presentViewController:alertController animated:true completion:nil];
 }
 
 @end
