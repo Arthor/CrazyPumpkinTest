@@ -20,14 +20,24 @@
 		AC1E7F1B188796820055324B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F19188796820055324B /* InfoPlist.strings */; };
 		AC1E7F1D188796820055324B /* CleverPumpkinTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F1C188796820055324B /* CleverPumpkinTestTests.m */; };
 		AC1E7F2B18879DA60055324B /* NetworkLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F2A18879DA60055324B /* NetworkLoader.m */; };
-		AC1E7F2D18879E050055324B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F2C18879E050055324B /* README.md */; };
 		AC1E7F301887A7F90055324B /* FlightXMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */; };
 		AC1E7F331887A8C00055324B /* FlightData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F321887A8C00055324B /* FlightData.m */; };
+		AC8228801F4F4EEB00D8B974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC82287F1F4F4EEB00D8B974 /* LaunchScreen.storyboard */; };
 		ACE4E3E5188BB12100482F4C /* FlightListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3E4188BB12100482F4C /* FlightListViewController.m */; };
 		ACE4E3E9188BC29200482F4C /* FlightsStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3E8188BC29200482F4C /* FlightsStorage.m */; };
 		ACE4E3EE188BE58100482F4C /* FlightInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3ED188BE58100482F4C /* FlightInfoCell.m */; };
 		ACE4E3F0188BE59500482F4C /* FlightInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE4E3EF188BE59500482F4C /* FlightInfoCell.xib */; };
 		ACE4E3F3188BFC9F00482F4C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE4E3F2188BFC9F00482F4C /* DetailViewController.m */; };
+		ACF684921F4F5FF7007ACEB7 /* OfflineURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF684911F4F5FF7007ACEB7 /* OfflineURLProtocol.swift */; };
+		ACF6849E1F4F7026007ACEB7 /* flights0541.xml in Resources */ = {isa = PBXBuildFile; fileRef = ACF684941F4F6824007ACEB7 /* flights0541.xml */; };
+		ACF6849F1F4F7029007ACEB7 /* 8395.xml in Resources */ = {isa = PBXBuildFile; fileRef = ACF6849A1F4F6D37007ACEB7 /* 8395.xml */; };
+		ACF684A01F4F702C007ACEB7 /* 1200.xml in Resources */ = {isa = PBXBuildFile; fileRef = ACF684961F4F6D03007ACEB7 /* 1200.xml */; };
+		ACF684A11F4F702E007ACEB7 /* 1145.xml in Resources */ = {isa = PBXBuildFile; fileRef = ACF684981F4F6D03007ACEB7 /* 1145.xml */; };
+		ACF684A21F4F7030007ACEB7 /* 777.xml in Resources */ = {isa = PBXBuildFile; fileRef = ACF684951F4F6B46007ACEB7 /* 777.xml */; };
+		ACF684A31F4F7032007ACEB7 /* 100.xml in Resources */ = {isa = PBXBuildFile; fileRef = ACF684971F4F6D03007ACEB7 /* 100.xml */; };
+		ACF684A41F4F705F007ACEB7 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF6849B1F4F6D9F007ACEB7 /* image.jpg */; };
+		ACF684A51F4F7062007ACEB7 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF6849D1F4F6D9F007ACEB7 /* image2.jpg */; };
+		ACF684A61F4F7064007ACEB7 /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF6849C1F4F6D9F007ACEB7 /* image3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +74,7 @@
 		AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightXMLParseOperation.m; sourceTree = "<group>"; };
 		AC1E7F311887A8C00055324B /* FlightData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightData.h; sourceTree = "<group>"; };
 		AC1E7F321887A8C00055324B /* FlightData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightData.m; sourceTree = "<group>"; };
+		AC82287F1F4F4EEB00D8B974 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACE4E3E3188BB12100482F4C /* FlightListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightListViewController.h; sourceTree = "<group>"; };
 		ACE4E3E4188BB12100482F4C /* FlightListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightListViewController.m; sourceTree = "<group>"; };
 		ACE4E3E7188BC29200482F4C /* FlightsStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsStorage.h; sourceTree = "<group>"; };
@@ -73,6 +84,17 @@
 		ACE4E3EF188BE59500482F4C /* FlightInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlightInfoCell.xib; sourceTree = "<group>"; };
 		ACE4E3F1188BFC9F00482F4C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		ACE4E3F2188BFC9F00482F4C /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		ACF684901F4F5FF7007ACEB7 /* CleverPumpkinTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CleverPumpkinTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		ACF684911F4F5FF7007ACEB7 /* OfflineURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineURLProtocol.swift; sourceTree = "<group>"; };
+		ACF684941F4F6824007ACEB7 /* flights0541.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = flights0541.xml; sourceTree = "<group>"; };
+		ACF684951F4F6B46007ACEB7 /* 777.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = 777.xml; sourceTree = "<group>"; };
+		ACF684961F4F6D03007ACEB7 /* 1200.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = 1200.xml; sourceTree = "<group>"; };
+		ACF684971F4F6D03007ACEB7 /* 100.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = 100.xml; sourceTree = "<group>"; };
+		ACF684981F4F6D03007ACEB7 /* 1145.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = 1145.xml; sourceTree = "<group>"; };
+		ACF6849A1F4F6D37007ACEB7 /* 8395.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = 8395.xml; sourceTree = "<group>"; };
+		ACF6849B1F4F6D9F007ACEB7 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		ACF6849C1F4F6D9F007ACEB7 /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
+		ACF6849D1F4F6D9F007ACEB7 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,10 +168,11 @@
 		AC1E7EFE188796820055324B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ACF684901F4F5FF7007ACEB7 /* CleverPumpkinTest-Bridging-Header.h */,
 				AC1E7EFF188796820055324B /* CleverPumpkinTest-Info.plist */,
+				AC1E7F05188796820055324B /* CleverPumpkinTest-Prefix.pch */,
 				AC1E7F00188796820055324B /* InfoPlist.strings */,
 				AC1E7F03188796820055324B /* main.m */,
-				AC1E7F05188796820055324B /* CleverPumpkinTest-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -185,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				AC1E7F09188796820055324B /* Images.xcassets */,
+				AC82287F1F4F4EEB00D8B974 /* LaunchScreen.storyboard */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -200,6 +224,8 @@
 				AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */,
 				AC1E7F2918879DA60055324B /* NetworkLoader.h */,
 				AC1E7F2A18879DA60055324B /* NetworkLoader.m */,
+				ACF684911F4F5FF7007ACEB7 /* OfflineURLProtocol.swift */,
+				ACF684991F4F6D0A007ACEB7 /* MockData */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -223,6 +249,22 @@
 				ACE4E3EF188BE59500482F4C /* FlightInfoCell.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		ACF684991F4F6D0A007ACEB7 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				ACF684971F4F6D03007ACEB7 /* 100.xml */,
+				ACF684951F4F6B46007ACEB7 /* 777.xml */,
+				ACF684981F4F6D03007ACEB7 /* 1145.xml */,
+				ACF684961F4F6D03007ACEB7 /* 1200.xml */,
+				ACF6849A1F4F6D37007ACEB7 /* 8395.xml */,
+				ACF684941F4F6824007ACEB7 /* flights0541.xml */,
+				ACF6849B1F4F6D9F007ACEB7 /* image.jpg */,
+				ACF6849D1F4F6D9F007ACEB7 /* image2.jpg */,
+				ACF6849C1F4F6D9F007ACEB7 /* image3.jpg */,
+			);
+			name = MockData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,9 +311,12 @@
 		AC1E7EEC188796820055324B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Artem Abramov";
 				TargetAttributes = {
+					AC1E7EF3188796820055324B = {
+						LastSwiftMigration = 0900;
+					};
 					AC1E7F0E188796820055324B = {
 						TestTargetID = AC1E7EF3188796820055324B;
 					};
@@ -300,10 +345,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1E7F2D18879E050055324B /* README.md in Resources */,
+				ACF684A61F4F7064007ACEB7 /* image3.jpg in Resources */,
+				ACF6849E1F4F7026007ACEB7 /* flights0541.xml in Resources */,
+				ACF684A41F4F705F007ACEB7 /* image.jpg in Resources */,
+				ACF684A31F4F7032007ACEB7 /* 100.xml in Resources */,
 				ACE4E3F0188BE59500482F4C /* FlightInfoCell.xib in Resources */,
+				ACF684A11F4F702E007ACEB7 /* 1145.xml in Resources */,
 				AC1E7F02188796820055324B /* InfoPlist.strings in Resources */,
+				AC8228801F4F4EEB00D8B974 /* LaunchScreen.storyboard in Resources */,
+				ACF6849F1F4F7029007ACEB7 /* 8395.xml in Resources */,
+				ACF684A21F4F7030007ACEB7 /* 777.xml in Resources */,
 				AC1E7F0A188796820055324B /* Images.xcassets in Resources */,
+				ACF684A51F4F7062007ACEB7 /* image2.jpg in Resources */,
+				ACF684A01F4F702C007ACEB7 /* 1200.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +385,7 @@
 				ACE4E3EE188BE58100482F4C /* FlightInfoCell.m in Sources */,
 				AC1E7F301887A7F90055324B /* FlightXMLParseOperation.m in Sources */,
 				ACE4E3E9188BC29200482F4C /* FlightsStorage.m in Sources */,
+				ACF684921F4F5FF7007ACEB7 /* OfflineURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,23 +431,34 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -405,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -415,30 +481,40 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -448,11 +524,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
 				INFOPLIST_FILE = "CleverPumpkinTest/CleverPumpkinTest-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arabramov.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -461,11 +542,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
 				INFOPLIST_FILE = "CleverPumpkinTest/CleverPumpkinTest-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arabramov.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -473,7 +558,7 @@
 		AC1E7F24188796820055324B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CleverPumpkinTest.app/CleverPumpkinTest";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -487,6 +572,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "CleverPumpkinTestTests/CleverPumpkinTestTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arabramov.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -496,7 +582,7 @@
 		AC1E7F25188796820055324B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CleverPumpkinTest.app/CleverPumpkinTest";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -506,6 +592,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
 				INFOPLIST_FILE = "CleverPumpkinTestTests/CleverPumpkinTestTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arabramov.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<result>
+<trip duration="08:50">
+<takeoff date="2010-06-19" time="07:20" city="Лос-Анжелес"/>
+<landing date="2010-06-19" time="22:15" city="Лондон"/>
+<flight carrier="American Airlines" number="1200" eq="320"/>
+<price>25100.00</price>
+<description> Популярный и недорогой рейс </description>
+<photo src="http://cleverpumpkin.ru/test/images/image5.jpg" />
+</trip>
+</result>

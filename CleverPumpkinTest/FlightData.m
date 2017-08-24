@@ -30,20 +30,22 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:_photoURL];
     
     __weak typeof(self) weakSelf = self;
-    void(^completionHandler)(NSURLResponse *, NSData *, NSError *error) =
-    ^(NSURLResponse *response, NSData *data, NSError *connectionError)
+    void(^completionHandler)(NSData *, NSURLResponse *, NSError *) =
+    ^(NSData *data, NSURLResponse *response, NSError *error)
     {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        UIImage *image = [UIImage imageWithData:data];
-        if (image)
-            weakSelf.image = image;
-        isLoading = NO;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            UIImage *image = [UIImage imageWithData:data];
+            if (image)
+                weakSelf.image = image;
+            isLoading = NO;
+        });
     };
 
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:completionHandler];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [[NSURLSession.sharedSession dataTaskWithRequest:request completionHandler:completionHandler] resume];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    });
     isLoading = YES;
 }
 

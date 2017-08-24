@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<result>
+<trip duration="03:40">
+<takeoff date="2010-06-19" time="09:20" city="Санкт-Петербург"/>
+<landing date="2010-06-19" time="11:15" city="Париж"/>
+<flight carrier="AirFrance" number="1145" eq="320"/>
+<price>13229.00</price>
+<description> Популярный и недорогой рейс </description>
+<photo src="http://cleverpumpkin.ru/test/images/image3.jpg" />
+</trip>
+</result>
