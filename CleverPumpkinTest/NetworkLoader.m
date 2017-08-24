@@ -71,12 +71,14 @@ NSString* const kCleverPumpkinDetailFlightURL = @"http://cleverpumpkin.ru/test/f
                                          timeoutInterval:kTimeoutInterval];
     
     __weak typeof(self) weakSelf = self;
-    void(^completionHandler)(NSURLResponse *, NSData *, NSError *error) =
-    ^(NSURLResponse *response, NSData *data, NSError *connectionError)
+    void(^completionHandler)(NSData *, NSURLResponse *, NSError *) =
+    ^(NSData *data, NSURLResponse *response, NSError *error)
     {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        if (connectionError)
-            [self handleError:connectionError];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        });
+        if (error)
+            [self handleError:error];
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if ((([httpResponse statusCode]/100) == 2))
         {
@@ -97,9 +99,8 @@ NSString* const kCleverPumpkinDetailFlightURL = @"http://cleverpumpkin.ru/test/f
         weakSelf.isLoading = NO;
     };
     self.parseQueue = [NSOperationQueue new];
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:completionHandler];
+    NSURLSessionDataTask *task =  [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:completionHandler];
+    [task resume];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     return error;
 }
