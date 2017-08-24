@@ -61,6 +61,7 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     self.flightsStorage.delegate = self;
     [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow
                                   animated:YES];
