@@ -518,7 +518,6 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -542,7 +541,6 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
 				INFOPLIST_FILE = "CleverPumpkinTestTests/CleverPumpkinTestTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arabramov.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
