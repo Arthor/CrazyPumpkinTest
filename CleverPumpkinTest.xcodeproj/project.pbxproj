@@ -58,7 +58,6 @@
 		AC1E7EFF188796820055324B /* CleverPumpkinTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CleverPumpkinTest-Info.plist"; sourceTree = "<group>"; };
 		AC1E7F01188796820055324B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC1E7F03188796820055324B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AC1E7F05188796820055324B /* CleverPumpkinTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CleverPumpkinTest-Prefix.pch"; sourceTree = "<group>"; };
 		AC1E7F06188796820055324B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AC1E7F07188796820055324B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AC1E7F09188796820055324B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -124,6 +123,7 @@
 		AC1E7EEB188796820055324B = {
 			isa = PBXGroup;
 			children = (
+				AC1E7F2C18879E050055324B /* README.md */,
 				AC1E7EFD188796820055324B /* CleverPumpkinTest */,
 				AC1E7F16188796820055324B /* CleverPumpkinTestTests */,
 				AC1E7EF6188796820055324B /* Frameworks */,
@@ -154,27 +154,13 @@
 		AC1E7EFD188796820055324B /* CleverPumpkinTest */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E7F2C18879E050055324B /* README.md */,
 				AC1E7F2618879D620055324B /* AppDelegate */,
-				AC1E7F2718879D6B0055324B /* Assets */,
-				AC1E7F2818879D8D0055324B /* Model */,
-				AC1E7EFE188796820055324B /* Supporting Files */,
-				ACE4E3E6188BB59C00482F4C /* ViewControllers */,
-				ACE4E3EA188BE55A00482F4C /* Views */,
+				ACF684AA1F4F7887007ACEB7 /* Flights */,
+				ACF684A71F4F77D1007ACEB7 /* Resources */,
+				ACF684A81F4F784E007ACEB7 /* Services */,
+				ACF684A91F4F7876007ACEB7 /* Supporting Files */,
 			);
 			path = CleverPumpkinTest;
-			sourceTree = "<group>";
-		};
-		AC1E7EFE188796820055324B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				ACF684901F4F5FF7007ACEB7 /* CleverPumpkinTest-Bridging-Header.h */,
-				AC1E7EFF188796820055324B /* CleverPumpkinTest-Info.plist */,
-				AC1E7F05188796820055324B /* CleverPumpkinTest-Prefix.pch */,
-				AC1E7F00188796820055324B /* InfoPlist.strings */,
-				AC1E7F03188796820055324B /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		AC1E7F16188796820055324B /* CleverPumpkinTestTests */ = {
@@ -201,57 +187,10 @@
 				AC1E7F06188796820055324B /* AppDelegate.h */,
 				AC1E7F07188796820055324B /* AppDelegate.m */,
 			);
-			name = AppDelegate;
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		AC1E7F2718879D6B0055324B /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				AC1E7F09188796820055324B /* Images.xcassets */,
-				AC82287F1F4F4EEB00D8B974 /* LaunchScreen.storyboard */,
-			);
-			name = Assets;
-			sourceTree = "<group>";
-		};
-		AC1E7F2818879D8D0055324B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				AC1E7F311887A8C00055324B /* FlightData.h */,
-				AC1E7F321887A8C00055324B /* FlightData.m */,
-				ACE4E3E7188BC29200482F4C /* FlightsStorage.h */,
-				ACE4E3E8188BC29200482F4C /* FlightsStorage.m */,
-				AC1E7F2E1887A7F90055324B /* FlightXMLParseOperation.h */,
-				AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */,
-				AC1E7F2918879DA60055324B /* NetworkLoader.h */,
-				AC1E7F2A18879DA60055324B /* NetworkLoader.m */,
-				ACF684911F4F5FF7007ACEB7 /* OfflineURLProtocol.swift */,
-				ACF684991F4F6D0A007ACEB7 /* MockData */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		ACE4E3E6188BB59C00482F4C /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				ACE4E3F1188BFC9F00482F4C /* DetailViewController.h */,
-				ACE4E3F2188BFC9F00482F4C /* DetailViewController.m */,
-				ACE4E3E3188BB12100482F4C /* FlightListViewController.h */,
-				ACE4E3E4188BB12100482F4C /* FlightListViewController.m */,
-			);
-			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		ACE4E3EA188BE55A00482F4C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				ACE4E3EC188BE58100482F4C /* FlightInfoCell.h */,
-				ACE4E3ED188BE58100482F4C /* FlightInfoCell.m */,
-				ACE4E3EF188BE59500482F4C /* FlightInfoCell.xib */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		ACF684991F4F6D0A007ACEB7 /* MockData */ = {
+		ACF684A71F4F77D1007ACEB7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				ACF684971F4F6D03007ACEB7 /* 100.xml */,
@@ -263,8 +202,51 @@
 				ACF6849B1F4F6D9F007ACEB7 /* image.jpg */,
 				ACF6849D1F4F6D9F007ACEB7 /* image2.jpg */,
 				ACF6849C1F4F6D9F007ACEB7 /* image3.jpg */,
+				AC1E7F09188796820055324B /* Images.xcassets */,
+				AC82287F1F4F4EEB00D8B974 /* LaunchScreen.storyboard */,
 			);
-			name = MockData;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ACF684A81F4F784E007ACEB7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7F2E1887A7F90055324B /* FlightXMLParseOperation.h */,
+				AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */,
+				AC1E7F2918879DA60055324B /* NetworkLoader.h */,
+				AC1E7F2A18879DA60055324B /* NetworkLoader.m */,
+				ACF684911F4F5FF7007ACEB7 /* OfflineURLProtocol.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ACF684A91F4F7876007ACEB7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACF684901F4F5FF7007ACEB7 /* CleverPumpkinTest-Bridging-Header.h */,
+				AC1E7EFF188796820055324B /* CleverPumpkinTest-Info.plist */,
+				AC1E7F00188796820055324B /* InfoPlist.strings */,
+				AC1E7F03188796820055324B /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ACF684AA1F4F7887007ACEB7 /* Flights */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7F311887A8C00055324B /* FlightData.h */,
+				AC1E7F321887A8C00055324B /* FlightData.m */,
+				ACE4E3E7188BC29200482F4C /* FlightsStorage.h */,
+				ACE4E3E8188BC29200482F4C /* FlightsStorage.m */,
+				ACE4E3F1188BFC9F00482F4C /* DetailViewController.h */,
+				ACE4E3F2188BFC9F00482F4C /* DetailViewController.m */,
+				ACE4E3E3188BB12100482F4C /* FlightListViewController.h */,
+				ACE4E3E4188BB12100482F4C /* FlightListViewController.m */,
+				ACE4E3EC188BE58100482F4C /* FlightInfoCell.h */,
+				ACE4E3ED188BE58100482F4C /* FlightInfoCell.m */,
+				ACE4E3EF188BE59500482F4C /* FlightInfoCell.xib */,
+			);
+			path = Flights;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,12 +508,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
-				INFOPLIST_FILE = "CleverPumpkinTest/CleverPumpkinTest-Info.plist";
+				INFOPLIST_FILE = "CleverPumpkinTest/Supporting Files/CleverPumpkinTest-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arabramov.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CleverPumpkinTest/Supporting Files/CleverPumpkinTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -544,12 +525,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Prefix.pch";
-				INFOPLIST_FILE = "CleverPumpkinTest/CleverPumpkinTest-Info.plist";
+				INFOPLIST_FILE = "CleverPumpkinTest/Supporting Files/CleverPumpkinTest-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arabramov.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CleverPumpkinTest/CleverPumpkinTest-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CleverPumpkinTest/Supporting Files/CleverPumpkinTest-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
