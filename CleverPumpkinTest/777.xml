@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<result>
+<trip duration="01:00">
+<takeoff date="2010-06-18" time="08:40" city="Лондон"/>
+<landing date="2010-06-18" time="09:40" city="Манчестер"/>
+<flight carrier="British Airlines" number="777" eq="320"/>
+<price>5250.00</price>
+<description> Популярный и недорогой рейс </description>
+<photo src="http://cleverpumpkin.ru/test/images/image2.jpg" />
+</trip>
+</result>

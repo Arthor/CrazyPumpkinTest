@@ -12,9 +12,9 @@
 #import "FlightsStorage.h"
 #import "FlightInfoCell.h"
 #import "DetailViewController.h"
+#import "CleverPumpkinTest-Swift.h"
 
 static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
-
 
 @interface FlightListViewController () <FlightsStorageProtocol, UITableViewDataSource, UITableViewDelegate>
 
@@ -35,6 +35,8 @@ static NSString* const kTableViewCellIdentifier = @"tableViewCellIdentifier";
 
     UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithTitle:@"Sort" style:UIBarButtonItemStylePlain target:self action:@selector(sortButtonPressed:)];
     self.navigationItem.rightBarButtonItem = sortButton;
+    UIBarButtonItem *offlineButton = [[UIBarButtonItem alloc] initWithTitle:@"Offline" style:UIBarButtonItemStylePlain target:self action:@selector(offlineButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = offlineButton;
 
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
@@ -201,6 +203,13 @@ static inline NSArray* NSIndexSetToNSIndexPathArray(NSIndexSet *indexes, NSUInte
         [self.flightsStorage sortFlightsBy:SortFlightParameter_Duration];
     }]];
     [self presentViewController:alertController animated:true completion:nil];
+}
+
+
+- (void)offlineButtonPressed:(id)sender
+{
+    [NSURLProtocol registerClass:[OfflineURLProtocol class]];
+    [self.flightsStorage fetchNewData];
 }
 
 @end

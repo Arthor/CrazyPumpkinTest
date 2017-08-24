@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<result>
+<trip duration="02:30">
+<takeoff date="2010-06-20" time="09:29" city="Новосибирск"/>
+<landing date="2010-06-20" time="11:59" city="Хабаровск"/>
+<flight carrier="TransAero" number="100" eq="320"/>
+<price>13329.00</price>
+</trip>
+<trip duration="03:30">
+<takeoff date="2010-06-19" time="18:40" city="Москва"/>
+<landing date="2010-06-19" time="20:10" city="Ереван"/>
+<flight carrier="Rossiya" number="8395" eq="320"/>
+<price>13429.00</price>
+</trip>
+<trip duration="03:40">
+<takeoff date="2010-06-19" time="09:20" city="Санкт-Петербург"/>
+<landing date="2010-06-19" time="11:15" city="Париж"/>
+<flight carrier="AirFrance" number="1145" eq="320"/>
+<price>13229.00</price>
+</trip>
+<trip duration="03:50">
+<takeoff date="2010-06-19" time="07:20" city="Санкт-Петербург"/>
+<landing date="2010-06-19" time="14:15" city="Барселона"/>
+<flight carrier="AirFrance" number="1100" eq="320"/>
+<price>13329.00</price>
+</trip>
+<trip duration="08:50">
+<takeoff date="2010-06-19" time="07:20" city="Лос-Анжелес"/>
+<landing date="2010-06-19" time="22:15" city="Лондон"/>
+<flight carrier="American Airlines" number="1200" eq="320"/>
+<price>25100.00</price>
+</trip>
+<trip duration="01:00">
+<takeoff date="2010-06-18" time="08:40" city="Лондон"/>
+<landing date="2010-06-18" time="09:40" city="Манчестер"/>
+<flight carrier="British Airlines" number="777" eq="320"/>
+<price>5250.00</price>
+</trip>
+</result>

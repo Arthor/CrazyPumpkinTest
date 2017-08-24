@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<result>
+<trip duration="03:30">
+<takeoff date="2010-06-19" time="18:40" city="Москва"/>
+<landing date="2010-06-19" time="20:10" city="Ереван"/>
+<flight carrier="Rossiya" number="8395" eq="320"/>
+<price>13429.00</price>
+<description> Популярный и недорогой рейс </description>
+<photo src="" />
+</trip>
+</result>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<result>
+<trip duration="02:30">
+<takeoff date="2010-06-20" time="09:29" city="Новосибирск"/>
+<landing date="2010-06-20" time="11:59" city="Хабаровск"/>
+<flight carrier="TransAero" number="100" eq="320"/>
+<price>13329.00</price>
+<description> Популярный и недорогой рейс </description>
+<photo src="http://cleverpumpkin.ru/test/images/image.jpg" />
+</trip>
+</result>
