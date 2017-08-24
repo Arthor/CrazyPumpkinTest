@@ -186,6 +186,7 @@ static inline NSArray* NSIndexSetToNSIndexPathArray(NSIndexSet *indexes, NSUInte
         NSLog(@"Detailed info of flight fetched: %@", newFlightData);
     }];
     [self.navigationController pushViewController:detailVC animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Action Handling
