@@ -20,7 +20,6 @@
 		AC1E7F1B188796820055324B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F19188796820055324B /* InfoPlist.strings */; };
 		AC1E7F1D188796820055324B /* CleverPumpkinTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F1C188796820055324B /* CleverPumpkinTestTests.m */; };
 		AC1E7F2B18879DA60055324B /* NetworkLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F2A18879DA60055324B /* NetworkLoader.m */; };
-		AC1E7F2D18879E050055324B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AC1E7F2C18879E050055324B /* README.md */; };
 		AC1E7F301887A7F90055324B /* FlightXMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F2F1887A7F90055324B /* FlightXMLParseOperation.m */; };
 		AC1E7F331887A8C00055324B /* FlightData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7F321887A8C00055324B /* FlightData.m */; };
 		AC8228801F4F4EEB00D8B974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC82287F1F4F4EEB00D8B974 /* LaunchScreen.storyboard */; };
@@ -303,7 +302,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1E7F2D18879E050055324B /* README.md in Resources */,
 				ACE4E3F0188BE59500482F4C /* FlightInfoCell.xib in Resources */,
 				AC1E7F02188796820055324B /* InfoPlist.strings in Resources */,
 				AC8228801F4F4EEB00D8B974 /* LaunchScreen.storyboard in Resources */,
