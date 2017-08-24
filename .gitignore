@@ -83,11 +83,11 @@ xcuserdata
 #
 # NB: this is exclusive with OPTION 1 above
 #
-#xcuserdata/**/*
+xcuserdata/**/*
 
 #     (requires option 2 above): Personal Schemes
 #
-#!xcuserdata/**/xcschemes/*
+!xcuserdata/**/xcschemes/*
 
 ####
 # XCode 4 workspaces - more detailed
@@ -122,16 +122,6 @@ xcuserdata
 # We're using source-control, so this is a "feature" that we do not want!
 
 *.moved-aside
-
-####
-# Cocoapods: cocoapods.org
-# 
-# Ignoring these files means that whoever uses the code will first have to run:
-# pod install
-# in the App.xcodeproj directory.
-# This ensures the latest dependencies are used.
-Pods/
-Podfile.lock
 
 
 ####
